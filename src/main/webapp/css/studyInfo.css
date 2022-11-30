@@ -1,0 +1,30 @@
+@charset "UTF-8";
+section {
+	float: left;
+	width: 70%;
+	background-color: rgb(43,82,22);
+	height: 835px;
+	margin: 10px;
+	overflow: auto;
+}
+aside {
+	width: 20%;
+	height: 835px;      /*부모의 높이가 미리 결정되어있어야 비율%사용가능 */
+	float: left;
+	margin: 10px;
+	background-color: rgb(159,0,40);
+}
+section > table {
+	padding: 50px;
+	background-color: rgb(234,234,234)
+}
+section > table > tbody tr{
+	line-height: 70px;
+}
+aside > table {
+	padding: 20px;
+	background-color: rgb(234,234,234);
+}
+aside > table > tbody tr {
+	line-height: 70px;
+}
