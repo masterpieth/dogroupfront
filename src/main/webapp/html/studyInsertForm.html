@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>개모임</title>
+	<link rel="stylesheet" href="../css/studyInsertForm.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="../js/basic.js"></script>
+	<script src="../js/studyInsert.js"></script>
+</head>
+<body>
+	<div class="container">
+		<form>
+			<h1>개모임 스터디 개설 페이지</h1>
+			<hr>
+			개설자 <input type="text" name="userEmail" value="user10@gmail.com">
+			<hr>
+			스터디 제목<input type="text" name="studyTitle" placeholder="스터디 제목 입력">
+			<hr>
+			스터디 유형
+			<select name="studyCertification">
+				<option>유형선택</option>
+				<option value="1">Github</option>
+				<option value="0">출석체크</option>
+			</select>
+			<hr>
+			성실도 기준<input type="number" name="studyDiligenceCutline" min="0" placeholder="성실도 선택">
+			<hr>
+			인증 빈도
+			<select name="studyHomeworkPerWeek">
+				<option>빈도선택</option>
+				<option value="7">매일</option>
+				<option value="1">주 1 일</option>
+				<option value="2">주 2 일</option>
+				<option value="3">주 3 일</option>
+				<option value="4">주 4 일</option>
+				<option value="5">주 5 일</option>
+				<option value="6">주 6 일</option>
+			</select>
+			<hr>
+			스터디 시작일<input type="date" name="studyStartDate">
+			스터디 종료일<input type="date" name="studyEndDate">
+			<hr>
+			모집인원<input type="number" name="studySize" min="1" placeholder="최소 1명">
+			<hr>
+			참가비용<input type="number" name="studyFee" placeholder="미입력시 무료">
+			<hr>
+			기술스택
+			<input type="checkbox"		name="subject" value="B0001">JAVA&nbsp;&nbsp;&nbsp;
+            <input type="checkbox"		name="subject" value="B0002">Spring&nbsp;&nbsp;&nbsp;
+            <input type="checkbox"		name="subject" value="B0003">Nodejs
+            <br>
+            스터디 내용
+            <br>
+            <textarea rows="20" cols="100" name="studyContent"></textarea>
+            <hr>
+            <input type="submit" value="개설하기">
+		</form>
+	</div>
+</body>
+</html>

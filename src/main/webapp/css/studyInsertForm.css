@@ -1,0 +1,9 @@
+@charset "UTF-8";
+div.container > form {
+	padding: 50px;
+	width: 70%;
+	background-color: skyblue;
+	height: px;
+	margin: 10px;
+	overflow: auto;
+}

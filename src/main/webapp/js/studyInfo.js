@@ -26,14 +26,18 @@ $(function() {
 				let dateStr = postDate.getFullYear() + '/' + (postDate.getMonth() + 1) + '/' + postDate.getDate()
 				$tbody.find('tr:eq(6) > td').html(dateStr)
 				let startDate = new Date(studyInfo.studyStartDate)
-                dateStr = startDate.getFullYear() + '/' + (startDate.getMonth() + 1) + '/' + startDate.getDate()
+				dateStr = startDate.getFullYear() + '/' + (startDate.getMonth() + 1) + '/' + startDate.getDate()
 				$tbody.find('tr:eq(7) > td').html(dateStr)
 				let endDate = new Date(studyInfo.studyEndDate)
-                dateStr = endDate.getFullYear() + '/' + (endDate.getMonth() + 1) + '/' + endDate.getDate()
+				dateStr = endDate.getFullYear() + '/' + (endDate.getMonth() + 1) + '/' + endDate.getDate()
 				$tbody.find('tr:eq(8) > td').html(dateStr)
 				$tbody.find('tr:eq(9) > td').html('주 ' + studyInfo.studyHomeworkPerWeek + ' 회')
 				$tbody.find('tr:eq(10) > td').html(studyInfo.studyContent)
-				
+				let subjectStr = ''
+				$(studyInfo.subjects).each(function(index, s) {
+					subjectStr += s.subject.subjectName + '/'
+				})
+				$tbody.find('tr:eq(11) > td').html(subjectStr)
 				//스터디장 정보 세팅
 				let $aside = $('aside > table > tbody')
 				let studyLeader = studyInfo.studyLeader

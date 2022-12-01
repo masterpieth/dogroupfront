@@ -6,3 +6,23 @@ table {
   th, td {
     border: 1px solid #444444;
   }
+  div.pages {
+    text-align: center;
+}
+div.pages > ul > li {
+    list-style: none;
+    padding: 20px;
+    border: 1px solid;
+    display: inline-block;
+    font-size: 100px;
+    
+}
+div.pages > ul > li.focus {
+    background-color: aquamarine;
+}
+div.pages > ul > li:hover {
+    background-color: aquamarine;
+}
+div.pages > ul > li.current {
+    background-color: aquamarine;
+}
