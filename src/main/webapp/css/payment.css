@@ -91,8 +91,12 @@ tr.title {
     font-size: large;
 }
 
+section div.user_wallet_section{
+   margin-left: 3%;
+}
+
   table.payment_table{
-    width: 100%;
+    width: 95%;
     border: 2px solid #444444;
     border-collapse: collapse;
     text-align: center;
