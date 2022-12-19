@@ -6,7 +6,6 @@ $(function() {
 	                'currentPage' : currentPage
 	        },
 	        success: function(jsonObj) {
-				console.log(jsonObj)
 	            if(jsonObj.status == 1) {
 	                let $trOrigin = $('table > tbody > tr:eq(0)')
 	                $trOrigin.show()
