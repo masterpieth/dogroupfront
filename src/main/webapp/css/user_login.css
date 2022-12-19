@@ -16,11 +16,4 @@
 .login_section div.container h3:hover {
     color: #0054f4;
     cursor: pointer;
-    border: 1px solid #0054f4;
-}
-
-.github_mark:hover {
-    box-shadow: #0054f4;
-    cursor: pointer;
-
 }
