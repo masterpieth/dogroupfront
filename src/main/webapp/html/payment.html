@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+     <!--start header-->
+    <head>
+        <meta charset="utf-8">
+        <title>거래내역상세</title>
+        <link rel="stylesheet" href="../css/payment.css">
+        <link rel="shortcut icon" type="image/x-icon" href="../images/dogroup_favicon.jpg" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../js/basic.js"></script>
+    </head>
+    <body>
+      
+            <div class="header">
+                <a href="/src/main/webapp/html/index.html" class="logo">
+                    <img height="80" src="../images/dogroup_logo_noback.png" alt="logo">
+                </a>
+                <div class="header_con">
+                    <ul class="main_nav">
+                        <li><a href="#">스터디 찾기</a></li>
+                        <li><a href="#">스터디 개설</a></li>
+                        <li><a href="#">진행중인 스터디</a></li>
+                    </ul>
+                    <ul class="user_nav">
+                        <li><a href="#">마이페이지</a></li>
+                        <li><a href="#">회원가입</a></li>
+                    </ul>
+                </div>
+            </div>
+             <!--end header-->
+        
+            <section class="payment">
+               
+                    <div class="user wallet-section">
+                       <caption><h2>내 지갑 내역</h2></caption>
+                     
+
+                           <table class="payment_table">
+                             <thead>
+                               <tr class="title">
+                                 <th scope="col">거래 번호</th>
+                                 <th scope="col">거래 일자</th>
+                                 <th scope="col">거래구분</th>
+                                 <th scope="col">거내 내역</th>
+                                 <th scope="col">금액</th>
+                                 
+                               </tr>
+                             </thead>
+                      
+                    
+                        <tbody>
+                    <tr class="payment_row1">
+                        
+                      <td>1113356</td>
+                      <td>
+                        <time datetime="Tue Sep 07 2021 23:36:52 GMT+0900 (GMT+09:00)">2022-10-24</time>
+                      </td>
+                      <td>스터디 입장료</td>
+                      <td class="user_name"><a class="link_to" href="/orders/1113356">JAVA를 조지는 스터디</a></td>
+                      <td class="pay_price">
+                        
+                          <span>₩77,000</span><br>
+                          <span class="discounted">- ₩20000</span><br>
+                        <span>₩57,000</span>
+                      </td>
+
+                    </tr> 
+
+
+                    <tr class="payment_row2">
+                        
+                        <td>1543814</td>
+                        <td>
+                          <time datetime="Tue Sep 07 2021 23:36:52 GMT+0900 (GMT+09:00)">2022-10-26</time>
+                        </td>
+                        <td>환급금 </td>
+                        <td class="user_name"><a class="link_to" href="/orders/1113356">Do It With Python</a></td>
+                        <td class="pay_price">
+                          
+                            <span>₩57000</span><br>
+                            <span class="discounted">+ ₩10000</span><br>
+                          <span>₩67,000</span>
+                        </td>
+  
+                      </tr> 
+
+                      <tr class="payment_row3">
+                        
+                        <td>1597425</td>
+                        <td>
+                          <time datetime="Tue Sep 07 2021 23:36:52 GMT+0900 (GMT+09:00)">2022-11-10</time>
+                        </td>
+                        <td>스터디 입장료</td>
+                        <td class="user_name"e><a class="link_to" href="/orders/1113356">SPRING BOOT 100일 챌린지</a></td>
+                        <td class="pay_price">
+                          
+                            <span>₩77,000</span><br>
+                            <span class="discounted">- ₩30000</span><br>
+                          <span>₩47,000</span>
+                        </td>
+  
+                      </tr>
+                      <tr class="payment_row4">
+                        
+                        <td>1825784</td>
+                        <td>
+                          <time datetime="Tue Sep 07 2021 23:36:52 GMT+0900 (GMT+09:00)">2022-11-22</time>
+                        </td>
+                        <td>충전</td>
+                        <td class="user_name"><a class="link_to" href="/orders/1113356">국민은행</a></td>
+                        <td class="pay_price">
+                          
+                            <span>₩77,000</span><br>
+                            <span class="discounted">+ ₩20000</span><br>
+                          <span>₩57,000</span>
+                        </td>
+  
+                      </tr>
+
+                      <tr class="payment_row5">
+                        
+                        <td>2411758</td>
+                        <td>
+                          <time datetime="Tue Sep 07 2021 23:36:52 GMT+0900 (GMT+09:00)">2022-12-8</time>
+                        </td>
+                        <td>인출</td>
+                        <td class="user_name"><a class="link_to" href="/orders/1113356">카카오뱅크</a></td>
+                        <td class="pay_price">
+                          
+                            <span>₩77,000</span><br>
+                            <span class="discounted">- ₩20000</span><br>
+                          <span>₩57,000</span>
+                        </td>
+  
+                      </tr>
+                      
+                </tbody>
+                      </table>
+                        
+                      </div>  
+
+
+            
+          
+        
+
+
+
+
+
+
+
+            </section>
+
+
+
+            <footer>
+                <div class="container">
+                    <h6 class="footer_title">
+                        <a href="#">DOGROUP</a>
+                    </h6>
+                    <ul class="footer_nav">
+                        <li>
+                            <a href="#">스터디 찾기</a>
+                        </li>
+                        <li>
+                            <a href="#">스터디 개설</a>
+                        </li>
+                        <li>
+                            <a href="#">마이페이지</a>
+                        </li>
+                        <li>
+                            <a href="#">진행중인 스터디</a>
+                        </li>
+                    </ul>
+                    <ul class="copyright">
+                        <li>
+                            <p>한국소프트웨어산업협회 JAVA 개발자 양성과정 1조</p>
+                        </li>
+                        <li>
+                            <p>강보미</p>
+                            <p>김나영</p>
+                            <p>김태현</p>
+                            <p>성찬민</p>
+                            <p>and 장민석</p>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+        
+
+
+
+    </body>
