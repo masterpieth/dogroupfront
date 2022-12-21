@@ -1,0 +1,67 @@
+div.study_create {
+    padding-top: 50px;
+    padding-left: 35%;
+    padding-bottom: 50px;
+}
+input[name=email] {
+    width: 200px;
+}
+input[name=studySize],
+input[name=studyFee] {
+    width: 185px;
+}
+input[name=studySize] {
+    margin-right: 80px;
+}
+input[name=studyStartDate] {
+    margin-right: 15px;
+}
+input[name=studyStartDate],
+input[name=studyEndDate] {
+    width: 180px;
+}
+div.study_create_main {
+    width: 600px;
+}
+div.study_certification select, input[name=studyDiligenceCutline] {
+    width: 100px;
+}
+.delete_btn {
+    margin-top: 20px;
+    width: 200px !important;
+    border:1px solid red;
+    color:red;
+    height:33px;
+    width:66.4px;
+    border-radius: 5px;
+    display:inline-block;
+    text-align:center;
+    line-height:33px;
+    font-size: 14px;
+    font-weight: 550;
+}
+.delete_btn:hover{
+    border:1px solid white;
+    color:white;
+    background-color: red;
+}
+.modify_btn {
+    margin-top: 20px;
+    width: 200px !important;
+    border:1px solid white;
+    color:white;
+    background-color: #0078ff;
+    height:33px;
+    width:66.4px;
+    border-radius: 5px;
+    display:inline-block;
+    text-align:center;
+    line-height:33px;
+    font-size: 14px;
+    font-weight: 550;
+}
+.modify_btn:hover{
+    border:1px solid #0078ff;
+    color:#0078ff;
+    background-color: white;
+}
