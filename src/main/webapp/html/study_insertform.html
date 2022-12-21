@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>개모임</title>
+        <link rel="stylesheet" href="../css/index.css">
+        <link rel="stylesheet" href="../css/study_insert_form.css">
+        <link rel="shortcut icon" type="image/x-icon" href="../images/dogroup_favicon.jpg" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../js/basic.js"></script>
+        <script src="../js/study_insert.js"></script>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="header">
+                <a href="/src/main/webapp/html/index.html" class="logo">
+                    <img height="80" src="../images/dogroup_logo_noback.png" alt="logo">
+                </a>
+                <div class="header_con">
+                    <ul class="main_nav">
+                        <li><a href="#">스터디 찾기</a></li>
+                        <li><a href="#">스터디 개설</a></li>
+                        <li><a href="#">진행중인 스터디</a></li>
+                    </ul>
+                    <ul class="user_nav">
+                        <li><a href="#">마이페이지</a></li>
+                        <li><a href="#">회원가입</a></li>
+                        <li><a href="../html/login.html">로그인</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--end header-->
+            <div class="study_create">
+                <div class="study_create_main">
+                    <form>
+                        <h1>개모임 스터디 개설 페이지</h1>
+                        <br>
+                        <div class="study_user_eamil">
+                            개설자<br>
+                            <input type="text" name="email">
+                        </div>
+                        <br>
+                        <div class="study_title">
+                            스터디 제목<input type="text" name="studyTitle" placeholder="스터디 제목 입력" required>
+                        </div>
+                        <br>
+                        <div class="study_certification">
+                            스터디 유형&nbsp;
+                            <select name="studyCertification">
+                                <option>유형선택</option>
+                                <option value="1">Github</option>
+                                <option value="0">출석체크</option>
+                            </select>
+                            &nbsp;
+                            성실도 기준&nbsp;<input type="number" name="studyDiligenceCutline" min="0" placeholder="성실도 선택">
+                            &nbsp;인증 빈도&nbsp;
+                            <select name="studyHomeworkPerWeek">
+                                <option>빈도선택</option>
+                                <option value="7">매일</option>
+                                <option value="1">주 1 일</option>
+                                <option value="2">주 2 일</option>
+                                <option value="3">주 3 일</option>
+                                <option value="4">주 4 일</option>
+                                <option value="5">주 5 일</option>
+                                <option value="6">주 6 일</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="study_date">
+                            스터디 시작일&nbsp;<input type="date" name="studyStartDate">
+                            스터디 종료일&nbsp;<input type="date" name="studyEndDate">
+                        </div>
+                        <br>
+                        <div class="study_size_fee">
+                            모집인원&nbsp;<input type="number" name="studySize" min="1" placeholder="최소 1명">
+                            참가비용&nbsp;<input type="number" name="studyFee" min="0" placeholder="미입력시 무료">
+                        </div>
+                        <br><br>
+                        <div class="study_subject">
+                            <label>기술스택</label>
+                            <br>
+                        </div>
+                        <br><br>
+                        스터디내용
+                        <div>
+                            <br>
+                            <textarea rows="20" cols="90" name="studyContent"></textarea>
+                        </div>
+                        <div class="study_submit">
+                            <a class="modify_btn" id="open_study_btn">개설하기</a>
+                            <a class="more_position_btn">수정하기</a>
+                            <a class="delete_btn">삭제하기</a>
+                            <!--<div>
+                                <button class="study_delete" type= "submit" value="삭제하기"> 삭제하기 </button>
+                            </div> -->
+                        </div>
+                    </form>            
+                </div>
+            </div>
+            <footer>
+                <div class="container">
+                    <h6 class="footer_title">
+                        <a href="#">DOGROUP</a>
+                    </h6>
+                    <ul class="footer_nav">
+                        <li>
+                            <a href="#">스터디 찾기</a>
+                        </li>
+                        <li>
+                            <a href="#">스터디 개설</a>
+                        </li>
+                        <li>
+                            <a href="#">마이페이지</a>
+                        </li>
+                        <li>
+                            <a href="#">진행중인 스터디</a>
+                        </li>
+                    </ul>
+                    <ul class="copyright">
+                        <li>
+                            <p>한국소프트웨어산업협회 JAVA 개발자 양성과정 1조</p>
+                        </li>
+                        <li>
+                            <p>강보미</p>
+                            <p>김나영</p>
+                            <p>김태현</p>
+                            <p>성찬민</p>
+                            <p>and 장민석</p>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html> 
