@@ -108,6 +108,7 @@ a{
 
 .user_nav li, .main_nav li{
     padding-top: 25px;
+    cursor: pointer;
     float: left;
 }
 

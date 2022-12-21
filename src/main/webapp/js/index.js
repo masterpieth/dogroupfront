@@ -1,7 +1,24 @@
 $(function(){
-    const header = document.querySelector('header');
+    //로그인시 url queryStr에 이메일이 붙어옴
+    let email = location.search.substr(7)
+    if(email.length != 0) {
+        localStorage.setItem('loginedId', email)
+        history.replaceState({}, null, location.pathname)
+    }
+    showMenu()
 
-    fetch('../html/header.html')
-    .then(res => res.text())
-    .then(data => header.innerHTML = data);
+    $('ul.user_nav li.logout a').click(() => {
+        $.ajax({
+            url: backURL + 'user/logout',
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function () {
+                localStorage.removeItem('loginedId')
+                location.href=frontURL + 'index.html'
+            }, error: function(xhr) {
+                alert(xhr.status)
+            }
+        })
+    })
 })
