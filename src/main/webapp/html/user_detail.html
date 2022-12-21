@@ -5,14 +5,11 @@
     <title>거래내역상세</title>
    
     <link rel="stylesheet" href="../css/index.css" />
-    <link rel="stylesheet" href="../css/user_info.css" />
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="../images/dogroup_favicon.jpg"
-    />
+    <link rel="stylesheet" href="../css/user_detail.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../images/dogroup_favicon.jpg"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../js/basic.js"></script>
+    <script src="../js/user_detail.js"></script>
   </head>
   <body>
     <div class="header">
@@ -45,24 +42,31 @@
                         <tr>
                             <th>아이디</th>
                             <td>
-                                <input type="text" disabled>
+                                <input type="text" name="email" disabled>
                             </td>
                         </tr>
                         <tr>
                             <th>이름</th>
                             <td>
-                                <input type="text">
+                                <input type="text" name="name">
                             </td>
                         </tr>
                         <tr>
                             <th>성실도</th>
                             <td>
-                                <span>5000점</span>
+                                <span class="diligence"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>잔액</th>
+                            <td>
+                                <span class="balance"></span>
+                                <input type="button" name="charge" value="충전하기">
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <a class="more_position_btn">저장</a>
+                                <a class="more_position_btn" id="update_info">저장</a>
                             </td>
                         </tr>
                     </tbody>
@@ -81,13 +85,13 @@
                         <tr>
                             <th>현재비밀번호</th>
                             <td>
-                                <input type="password">
+                                <input type="password" name="old_password">
                             </td>
                         </tr>
                         <tr>
                             <th>변경할비밀번호</th>
                             <td>
-                                <input type="password">
+                                <input type="password" name="password">
                             </td>
                         </tr>
                         <tr>
@@ -98,7 +102,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <a class="more_position_btn">비밀번호 변경</a>
+                                <a class="more_position_btn" id="change_pwd">비밀번호 변경</a>
                             </td>
                         </tr>
                     </tbody>
@@ -121,7 +125,7 @@
                     <tr><td><br></td></tr>
                     <tr>
                         <td>
-                            <a class="more_position_btn">계정 삭제</a>
+                            <a class="more_position_btn" id="delete_user">계정 삭제</a>
                         </td>
                     </tr>
                 </tbody>
