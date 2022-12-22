@@ -29,7 +29,8 @@ $(function(){
         })
     })
     //--로그아웃 END--
-
+    
+    //--검색조건 유효성검사 END--
     //--스터디 목록 보여주기 START--
     function showList(currentPage, option){
         let studyAllList
@@ -49,7 +50,9 @@ $(function(){
             success : function(jsonObj){
                 studyAllList = jsonObj.list
                 $(studyAllList).each((index, study)=>{
-                    let $studyCopy = $studyOrigin.clone()   //복제본
+                    let $studyCopy = $studyOrigin.clone()
+                    let src = "../images/icons/" + study.subjects[0].subject.subjectName + ".svg"
+                    $studyCopy.find('div.study_img_box>img').attr('src', src)
                     $studyCopy.find('div.startdate>span').html(study.studyStartDate)
                     $studyCopy.find('div.title>span').html(study.studyTitle)
                     $studyCopy.find('div.title>span').html(study.studyTitle)
@@ -141,4 +144,25 @@ function filter(target) {
         subjectArr.splice(subjectArr.indexOf(subjectsVal), 1) // check value filter 배열내용 삭제            
     }
     //console.log("필터입력값 출력 : " + subjectArr)
- }
+}
+//--검색조건 유효성검사 START--
+function checkForm() {
+    let today = new Date()
+    let startDate = new Date($('input[name=studyStartDate]').val())
+    let endDate = new Date($('input[name=studyEndDate]').val())
+    if(startDate <= today) {
+        alert('오늘 이전 날짜는 선택할 수 없습니다.')
+        $('input[name=studyStartDate]').val('')
+        return false
+    }
+        else if(endDate <= today) {
+        alert('오늘 이전 날짜는 선택할 수 없습니다.')
+        $('input[name=studyEndDate]').val('')
+        return false
+    } else if(endDate <= startDate) {
+        alert('시작일은 종료일보다 앞서야합니다.')
+        $('input[name=studyEndDate]').val('')
+        return false
+    }
+    return ture
+}

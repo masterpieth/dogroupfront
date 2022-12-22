@@ -126,15 +126,15 @@
                                         <th>개설자명</th>
                                         <td><input name="name" type="text" placeholder="개설자명을 입력하세요."></td>
                                         <th>시작일</th>
-                                        <td><input name="studyStartDate" type="date"></td>
+                                        <td><input name="studyStartDate" type="date" onchange="checkForm()"></td>
                                         <th>종료일</th>
-                                        <td><input name="studyEndDate" type="date"></td>
+                                        <td><input name="studyEndDate" type="date" onchange="checkForm()"></td>
                                     </tr>
                                     <tr>
                                         <th>인원</th>
-                                        <td><input name="studySize" type="number"></td>
+                                        <td><input name="studySize" type="number" min="0"></td>
                                         <th>성실도 기준</th>
-                                        <td><input name="studyDiligenceCutline" type="number"></td>
+                                        <td><input name="studyDiligenceCutline" type="number" min="0"></td>
                                         <th>참가비유무</th>
                                         <td>
                                             <select>
@@ -143,7 +143,7 @@
                                             </select>
                                         </td>
                                         <th>참가비</th>
-                                        <td><input name="studyFee" type="number" placeholder="이하"></td>
+                                        <td><input name="studyFee" type="number" placeholder="이하" min="0"></td>
                                     </tr>
                                     <tr>
                                         <th colspan="8" class="search_btn">
