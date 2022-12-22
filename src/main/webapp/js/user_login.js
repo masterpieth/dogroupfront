@@ -16,4 +16,13 @@ $(function() {
             }
         })
     })
+
+    $('img.kakao-logo').click(() => {
+        loginWithKakao()
+    })
+    function loginWithKakao() {
+    Kakao.Auth.authorize({
+        redirectUri: 'http://192.168.2.46:8888/dogroup/user/auth/kakao/callback',
+    });
+    }
 })
