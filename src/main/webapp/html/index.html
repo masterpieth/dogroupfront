@@ -19,7 +19,7 @@
                 <div class="header_con">
                     <ul class="main_nav">
                         <li><a href="#">스터디 찾기</a></li>
-                        <li><a href="../html/study_insertform.html">스터디 개설</a></li>
+                        <li><a href="#">스터디 개설</a></li>
                         <li><a href="../html/study_mystudylist.html">진행중인 스터디</a></li>
                     </ul>
                     <ul class="user_nav">
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                             <div class="root_info">
-                                <a href="http://192.168.2.46:5500/src/main/webapp/html/study_updateForm.html?studyId=52">JAVA를 조지는 스터디</a>
+                                <a href="#">JAVA를 조지는 스터디</a>
                                 <ul>
                                     <li>접수 : 22년 03월 08일 ~ 12월 29일</li>
                                     <li>스터디기간 : 22년 04월 03일 ~ 04월 03일</li>
@@ -118,23 +118,23 @@
                     <h3>스터디 검색하기</h3>
                     <div class="search_form">
                         <form class="search_form">
-                            <table>
+                            <table class="search_table">
                                 <tbody>
                                     <tr>
                                         <th>스터디명</th>
-                                        <td><input type="text" placeholder="스터디명을 입력하세요."></td>
+                                        <td><input name="studyTitle" type="text" placeholder="스터디명을 입력하세요."></td>
                                         <th>개설자명</th>
-                                        <td><input type="text" placeholder="개설자명을 입력하세요."></td>
+                                        <td><input name="name" type="text" placeholder="개설자명을 입력하세요."></td>
                                         <th>시작일</th>
-                                        <td><input type="date"></td>
+                                        <td><input name="studyStartDate" type="date"></td>
                                         <th>종료일</th>
-                                        <td><input type="date"></td>
+                                        <td><input name="studyEndDate" type="date"></td>
                                     </tr>
                                     <tr>
                                         <th>인원</th>
-                                        <td><input type="number"></td>
+                                        <td><input name="studySize" type="number"></td>
                                         <th>성실도 기준</th>
-                                        <td><input type="number"></td>
+                                        <td><input name="studyDiligenceCutline" type="number"></td>
                                         <th>참가비유무</th>
                                         <td>
                                             <select>
@@ -143,185 +143,184 @@
                                             </select>
                                         </td>
                                         <th>참가비</th>
-                                        <td><input type="number" placeholder="이하"></td>
+                                        <td><input name="studyFee" type="number" placeholder="이하"></td>
                                     </tr>
                                     <tr>
+                                        <th colspan="8" class="search_btn">
+                                            <a class="search_study_btn">검색하기</a>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="subject_check">
+                                <tbody>
+                                    <tr>
                                         <th>과목선택</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="subjectClassify">BACK</th>
                                         <td colspan="7">
                                             <label class="checkbox_container">Backend
-                                                <input type="checkbox" value="0">
+                                                <input type="checkbox" value="Backend" onclick="filter(this)">
                                                 <span class="checkmark"></span>
                                             </label>
                                             <label class="checkbox_container">Java
-                                                <input type="checkbox" value="0">
+                                                <input type="checkbox" value="Java" onclick="filter(this)">
                                                 <span class="checkmark"></span>
                                             </label>
                                             <label class="checkbox_container">Spring
-                                                <input type="checkbox" value="0">
+                                                <input type="checkbox" value="Spring" onclick="filter(this)">
                                                 <span class="checkmark"></span>
                                             </label>
                                             <label class="checkbox_container">Node.js
-                                                <input type="checkbox" value="0">
+                                                <input type="checkbox" value="Nodejs" onclick="filter(this)">
                                                 <span class="checkmark"></span>
                                             </label>
-                                            <label class="checkbox_container">Vue
-                                                <input type="checkbox" value="0">
+                                            <label class="checkbox_container">Nestjs
+                                                <input type="checkbox" value="Nestjs" onclick="filter(this)">
                                                 <span class="checkmark"></span>
                                             </label>
-                                            <label class="checkbox_container">React
-                                                <input type="checkbox" value="0">
+                                            <label class="checkbox_container">Go
+                                                <input type="checkbox" value="Go" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">Kotlin
+                                                <input type="checkbox" value="Kotlin" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">Python
+                                                <input type="checkbox" value="Python" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">Django
+                                                <input type="checkbox" value="Django" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">php
+                                                <input type="checkbox" value="php" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">GraphQL
+                                                <input type="checkbox" value="GraphQL" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">Firebase
+                                                <input type="checkbox" value="Firebase" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">C
+                                                <input type="checkbox" value="C" onclick="filter(this)">
                                                 <span class="checkmark"></span>
                                             </label>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th colspan="8" class="search_btn">
-                                            <a class="more_position_btn" href="#">검색하기</a>
-                                        </th>
+                                        <th class="subjectClassify">FRONT</th>
+                                        <td colspan="7">
+                                            <label class="checkbox_container">Frontend
+                                                <input type="checkbox" value="Frontend" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">Vue
+                                                <input type="checkbox" value="Vue" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">React
+                                                <input type="checkbox" value="React" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">TypeScript
+                                                <input type="checkbox" value="TypeScript" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">Svelte
+                                                <input type="checkbox" value="Svelte" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">Nextjs
+                                                <input type="checkbox" value="Nextjs" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="subjectClassify">DATABASE</th>
+                                        <td colspan="7">
+                                            <label class="checkbox_container">Database
+                                                <input type="checkbox" value="Database" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">Oracle
+                                                <input type="checkbox" value="Oracle" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">MySQL
+                                                <input type="checkbox" value="MySQL" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">MongoDB
+                                                <input type="checkbox" value="MongoDB" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">MariaDB
+                                                <input type="checkbox" value="MariaDB" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">PostgreSQL
+                                                <input type="checkbox" value="PostgreSQL" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="subjectClassify">TOOL</th>
+                                        <td colspan="7">
+                                            <label class="checkbox_container">AWS
+                                                <input type="checkbox" value="AWS" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">Kubernetes
+                                                <input type="checkbox" value="Kubernetes" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">Docker
+                                                <input type="checkbox" value="Docker" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="checkbox_container">Git
+                                                <input type="checkbox" value="Git" onclick="filter(this)">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </form>
                     </div>
+                    <br>
                     <div class="sort_type">
-                        <span>블라블라</span>
-                        <span>블라블라</span>
-                        <span>블라블라</span>
+                        <span>검색 결과</span>
                     </div>
-                    <ul class="job_list">
-                        <li>
+                    <br>
+                    <ul class="study_list">
+                        <li class="study">
                             <a href="#">
-                                <div class="job_img_box">
+                                <div class="study_img_box">
                                     <img src="../images/icons/java.svg" alt="">
                                 </div>
-                                <div class="job_box">
-                                    <h6>시작 예정일 | 2022-12-10</h6>
-                                    <h5>Java 스터디</h5>
-                                    <h6>wronggim | 1000원 | 40도 이상 | 100일</h6>
-                                    <ul>
-                                        <li>Backend</li>
-                                        <li>Java</li>
-                                        <li>Spring</li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="job_img_box">
-                                    <img src="../images/icons/java.svg" alt="">
-                                </div>
-                                <div class="job_box">
-                                    <h6>시작 예정일 | 2022-12-10</h6>
-                                    <h5>Java 스터디</h5>
-                                    <h6>wronggim | 1000원 | 40도 이상 | 100일</h6>
-                                    <ul>
-                                        <li>Backend</li>
-                                        <li>Java</li>
-                                        <li>Spring</li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="job_img_box">
-                                    <img src="../images/icons/java.svg" alt="">
-                                </div>
-                                <div class="job_box">
-                                    <h6>시작 예정일 | 2022-12-10</h6>
-                                    <h5>Java 스터디</h5>
-                                    <h6>wronggim | 1000원 | 40도 이상 | 100일</h6>
-                                    <ul>
-                                        <li>Backend</li>
-                                        <li>Java</li>
-                                        <li>Spring</li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="job_img_box">
-                                    <img src="../images/icons/java.svg" alt="">
-                                </div>
-                                <div class="job_box">
-                                    <h6>시작 예정일 | 2022-12-10</h6>
-                                    <h5>Java 스터디</h5>
-                                    <h6>wronggim | 1000원 | 40도 이상 | 100일</h6>
-                                    <ul>
-                                        <li>Backend</li>
-                                        <li>Java</li>
-                                        <li>Spring</li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="job_img_box">
-                                    <img src="../images/icons/java.svg" alt="">
-                                </div>
-                                <div class="job_box">
-                                    <h6>시작 예정일 | 2022-12-10</h6>
-                                    <h5>Java 스터디</h5>
-                                    <h6>wronggim | 1000원 | 40도 이상 | 100일</h6>
-                                    <ul>
-                                        <li>Backend</li>
-                                        <li>Java</li>
-                                        <li>Spring</li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="job_img_box">
-                                    <img src="../images/icons/java.svg" alt="">
-                                </div>
-                                <div class="job_box">
-                                    <h6>시작 예정일 | 2022-12-10</h6>
-                                    <h5>Java 스터디</h5>
-                                    <h6>wronggim | 1000원 | 40도 이상 | 100일</h6>
-                                    <ul>
-                                        <li>Backend</li>
-                                        <li>Java</li>
-                                        <li>Spring</li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="job_img_box">
-                                    <img src="../images/icons/java.svg" alt="">
-                                </div>
-                                <div class="job_box">
-                                    <h6>시작 예정일 | 2022-12-10</h6>
-                                    <h5>Java 스터디</h5>
-                                    <h6>wronggim | 1000원 | 40도 이상 | 100일</h6>
-                                    <ul>
-                                        <li>Backend</li>
-                                        <li>Java</li>
-                                        <li>Spring</li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="job_img_box">
-                                    <img src="../images/icons/java.svg" alt="">
-                                </div>
-                                <div class="job_box">
-                                    <h6>시작 예정일 | 2022-12-10</h6>
-                                    <h5>Java 스터디</h5>
-                                    <h6>wronggim | 1000원 | 40도 이상 | 100일</h6>
-                                    <ul>
-                                        <li>Backend</li>
-                                        <li>Java</li>
-                                        <li>Spring</li>
-                                    </ul>
+                                <div class="study_box">
+                                    <div class="startdate">
+                                        시작 일자 : <span></span>
+                                    </div>
+                                    <div class="title">
+                                        스터디 명 : <span></span>
+                                    </div>
+                                    <div class="info">
+                                        스터디 정보 : <span></span>
+                                    </div>
+                                    <div class="subject">
+                                        스터디 과목 : <span></span>
+                                    </div>
                                 </div>
                             </a>
                         </li>
@@ -330,11 +329,6 @@
                 <div style="clear: both;"></div>
                 <div class="page_group">
                     <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li>4</li>
-                        <li>5</li>
                     </ul>
                 </div>
             </section>
