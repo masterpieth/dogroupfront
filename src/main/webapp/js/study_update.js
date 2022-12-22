@@ -69,12 +69,11 @@ $(function() {
         $('form').submit()
         return false
     })
-    //-- 스터디 개설버튼 클릭 END --
+    //-- 스터디 수정버튼 클릭 END --
 
-    //-- 스터디 개설 START --
+    //-- 스터디 수정 START --
     $('form').submit(() => {
         let formDataArray = $('form').serializeArray()
-        console.log(formDataArray)
         let sendData = {}
         let subjects = new Array()
         $.each(formDataArray, function(index, item) {
@@ -112,7 +111,25 @@ $(function() {
             return false
         }
     })
-    //-- 스터디 개설 END --
+    //-- 스터디 수정 END --
+
+    //-- 스터디 삭제 START --
+    $('#delete_study_btn').click(() => {
+        $.ajax({
+            xhrFields: {
+                withCredentials: true,
+            },
+            url: backURL + 'study/' + queryStr[1],
+            method: 'delete',
+            success: function() {
+                alert('스터디가 삭제되었습니다.')
+                location.href= frontURL + 'index.html'
+            }, error: function(xhr) {
+                alert(xhr)
+            }
+        })
+    })
+    //-- 스터디 삭제 END --
 
     //-- Form 유효성 검사 START --
     function checkForm(subjects) {
