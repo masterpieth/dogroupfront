@@ -343,7 +343,7 @@ a{
     margin-bottom: 40px;
 }
 
-.more_position_btn {
+.search_study_btn {
     margin-top: 20px;
     width: 200px !important;
     border:1px solid #0078ff;
@@ -357,7 +357,7 @@ a{
     font-size: 14px;
     font-weight: 550;
 }
-.more_position_btn:hover{
+.search_study_btn:hover{
     border:1px solid white;
     color:white;
     background-color: #0078ff;
@@ -386,12 +386,12 @@ a{
     padding-bottom: 20px;
 }
 
-.job_list{
+.study_list{
     width: 100%;
 }
 
 
-.job_list >  li {
+.study_list >  li {
     width: 576px;
     padding: 16px;
     margin-bottom: 16px;
@@ -400,15 +400,15 @@ a{
     border-radius: 6px;
 }
 
-.job_list >  li:nth-child(2),
-.job_list >  li:nth-child(4),
-.job_list >  li:nth-child(6),
-.job_list >  li:nth-child(8){
+.study_list >  li:nth-child(2),
+.study_list >  li:nth-child(4),
+.study_list >  li:nth-child(6),
+.study_list >  li:nth-child(8){
     margin-left: 16px;
 }
 
 
-.job_list img{
+.study_list img{
     width: auto;
     max-width: 5rem;
     height: auto;
@@ -419,50 +419,50 @@ a{
 
 }
 
-.job_list > li >  a > div > ul{
+.study_list > li >  a > div > ul{
     display: flex;
 }
 
 
 
-.job_img_box{
+.study_img_box{
     width: 5rem;
     height: 5rem;
     float: left;
     line-height: 5rem;
 }
 
-.job_box{
+.study_box{
     display: inline-block;
     padding-left: 24px;
 }
 
 
-.job_list a{
+.study_list a{
     width: 50%;
     color: black;
 }
 
-.job_list h5,
-.job_list h6{
+.study_list h5,
+.study_list h6{
     display: block;
 }
 
-.job_list h5{
+.study_list h5{
     font-size: 16px;
     padding-bottom: 6px;
 }
 
-.job_list h6{
+.study_list h6{
     font-size: 13px;
     color: #999;
 }
 
-.job_box > ul {
+.study_box > ul {
     margin-top: 10px;
 }
 
-.job_box > ul > li {
+.study_box > ul > li {
     background: #ececec;
     font-size: 12px;
     padding: 3px 8px;
@@ -540,6 +540,7 @@ div.search_form {
 }
 div.search_form table {
     width: 100%;
+    border-collapse: collapse;
 }
 div.search_form table tr * {
     margin-top: 2px;
@@ -553,6 +554,39 @@ div.search_form table th.search_btn {
     text-align: center;
 }
 
+div.search_form table.search_table input, select {
+    display: inline-block;
+    width: 180px;
+    padding-top: 5px;
+    margin-left: 1px;
+}
+div.search_form table.subject_check {
+    
+    margin-top: 20px;
+}
+div.search_form table.subject_check tr * {
+    margin-top: 5px;
+    margin-right: 3px;
+    margin-bottom: 10px;
+}
+div.search_form table.subject_check td {
+    border-top: 1px solid #e7e7e7;
+    border-bottom : 1px solid #e7e7e7;
+}
+div.search_form table.subject_check th.subjectClassify {
+    text-align: left;
+    font-size: 100%;
+    color: #666666;
+    font-weight: bold;
+    padding-right: 15px;
+}
+div.search_form table.subject_check label, input {
+    padding-right: auto;
+    display: inline-block;
+    width: 150px;
+    padding-top: 5px;
+    margin-left: 10px;
+}
 /***** page_group *****/
 div.page_group {
     text-align: center;
