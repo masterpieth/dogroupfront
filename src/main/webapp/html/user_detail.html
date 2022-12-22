@@ -64,6 +64,29 @@
                                 <input type="button" name="charge" value="충전하기">
                             </td>
                         </tr>
+                        <tr class="charge_tr" hidden>
+                            <th>충전금액</th>
+                            <td>
+                                <input type="number" min="0" name="transactionMoney">
+                            </td>
+                        </tr>
+                        <tr class="charge_tr" hidden>
+                            <th>거래방식</th>
+                            <td>
+                                <select name="transactionUser">
+                                    <option>선택</option>
+                                    <option value="카카오뱅크">카카오뱅크</option>
+                                    <option>신한은행</option>
+                                    <option>우리은행</option>
+                                    <option>국민은행</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="charge_tr" hidden>
+                            <td colspan="2">
+                                <a class="more_position_btn" id="charge_btn">충전</a>
+                            </td>
+                        </tr>
                         <tr>
                             <td colspan="2">
                                 <a class="more_position_btn" id="update_info">저장</a>

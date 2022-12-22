@@ -79,4 +79,46 @@ $(function() {
         })
     })
     //-- 계정 삭제 END --
+
+    //-- 충전하기 버튼 클릭이벤트 START --
+    let chargeIsShow = true
+    $('input[name=charge]').click(() => {
+        if(chargeIsShow) {
+            chargeIsShow = false
+            $('tr.charge_tr').show()
+        } else {
+            chargeIsShow = true
+            $('tr.charge_tr').hide()
+        }
+    })
+    //-- 충전하기 버튼 클릭이벤트 END --
+
+    //-- 충전하기 START --
+    $('#charge_btn').click(() => {
+        if($('input[name=transactionMoney]').val() == '' || $('input[name=transactionMoney]').val() == 0) {
+            alert('0원 이상의 금액을 입력해주세요')
+            return false
+        }
+        if($('select[name=transactionUser]').val() == '선택') {
+            alert('거래방식을 선택해주세요')
+            return false
+        }
+        let sendData = {}
+        sendData.transactionUser = $('select[name=transactionUser]').val()
+        sendData.transactionMoney = $('input[name=transactionMoney]').val()
+        sendData.email = localStorage.getItem('loginedId')
+        $.ajax({
+            url: backURL + 'wallet/deposit',
+            method:'post',
+            data: JSON.stringify(sendData),
+            contentType: 'application/json',
+            success: function() {
+                alert('충전되었습니다.')
+                location.reload()
+            }, error: function(xhr) {
+                alert(xhr)
+            }
+        })
+        return false
+    })
 })
