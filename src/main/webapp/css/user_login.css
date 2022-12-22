@@ -17,3 +17,10 @@
     color: #0054f4;
     cursor: pointer;
 }
+img.github_mark, img.kakao-logo {
+    cursor: pointer;
+}
+img.github_mark:hover,
+img.kakao-logo:hover {
+    width: 300px;
+}
