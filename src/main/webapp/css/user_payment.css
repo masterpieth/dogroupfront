@@ -135,11 +135,13 @@ footer{
     font-weight: 500;
 }
 .copyright {
+    margin-right: 30px;
     text-align: right;
     margin-top: 8px;
 }
 
 .copyright li{
+   
     color: #B2C0CC;
     font-size: 11px;
     padding-top: 8px;

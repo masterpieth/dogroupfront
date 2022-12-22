@@ -1,0 +1,192 @@
+
+*{
+    margin: 0px; 
+    padding:0;
+    box-sizing: border-box;
+}
+
+ul, li{
+    list-style:none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.header{
+    width:100%;
+    margin:0 auto;
+    position: flex;
+    height:93px;
+    background:#fff;
+    padding: 6px 16px;
+}
+
+
+.logo img{
+    margin-right: 20px;
+    display: block;
+}
+
+.header, .header_con{
+    display: flex;
+}
+
+.user_nav li, .main_nav li{
+    padding-top: 25px;
+    float: left;
+}
+
+.header_con {
+    line-height: 1.4;
+    width: 100%;
+}
+
+.header_con > ul > li > a{
+    color: black;
+}
+
+.user_nav{
+   margin-left: auto;
+}
+
+.header_con > ul > li > a,
+.divider{
+    font-size: 15px;
+    padding: 4px 8px;
+    font-weight: bold;
+    display: block;
+}
+
+/*header의 메인 탭부분*/
+/* section영역 start*/
+
+
+  caption {
+    text-align: start;
+  }
+
+  h2 {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .total_section{
+    width: 100%;
+    display: inline-block;
+    background: #fff;
+    padding-top: 2rem;
+    padding-bottom: 3.5rem;
+    margin-bottom: -5rem;
+  }
+
+  section {
+    float: left;
+    width: 75%;
+    background-color: #fff;
+    height: 835px;
+    margin: 10px;
+    margin-left: 20px;
+    overflow: auto;
+  }
+  .content_detail {
+    display: flex;
+    border: 1px solid #e9ecf3;
+    border-radius: 0.75rem;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    word-break: keep-all;
+    background-color: #fff;
+}
+
+textarea{   
+    text-align: start;
+    font-weight: bold;
+}
+
+.title {
+    display: grid;
+    align-items: center;
+    column-gap: 1rem;
+    grid-template-columns: 5.5rem auto;
+}
+
+.aside_atag{
+    text-align: center;
+}
+  aside {
+    padding-top: 10px;
+    text-align: center;
+    margin-left: 12px;
+    margin-top: 10px;
+    width: 20%;
+    height: 835px;      /*부모의 높이가 미리 결정되어있어야 비율%사용가능 */
+    float: left;
+    background-color: #fff ;
+
+  }
+
+  aside a{
+    text-align: center;
+    background: #0054f4;
+    width: 210px;
+    height: 42px;
+    display: inline-block;
+    line-height: 42px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+
+ aside a:hover {
+    background-color: whitesmoke; 
+    color: #0054f4;
+}
+
+ aside div>section{
+   text-align: center;
+   box-sizing: border-box;
+   height: 300px;
+   padding: 0;
+   border: 0;
+   margin: 40px;
+       
+ }
+
+ /***** footer *****/
+footer{
+    padding: 50px 0 40px 0;
+    display: block;
+    background-color: #0C151C;
+}
+
+.footer_title{
+    margin-bottom: 10px;
+}
+
+.footer_title a{
+    padding: 0px;
+    font-size: 14px;
+    color: white;
+    letter-spacing: -0.05em;
+}
+
+.footer_nav a{
+    font-size: 13px;
+    color: #fff;
+    font-weight: 500;
+}
+.copyright {
+    text-align: right;
+    margin-top: 8px;
+}
+
+.copyright li{
+    color: #B2C0CC;
+    font-size: 11px;
+    padding-top: 8px;
+}
