@@ -1,25 +1,71 @@
 $(function() {
-    //-- 과목 정보 받아오기 START --
+    //-- 스터디 정보, 과목 정보 받아오기 START --
+    let queryStr = location.search.substr(1).split('=')
     $.ajax({
-        url: backURL + 'study/subject/list/',
+        url: backURL + 'study/' + queryStr[1],
+        data: queryStr[0] + '=' + queryStr[1],
         success: function(jsonObj) {
-            let str =''
-            $.each(jsonObj, function(index, item) {
-                if(index % 5 == 0) {
-                    str += '<br>'
-                }
-                str += '&nbsp;<input type="checkbox" name="subject" value="' + item.subjectCode + '"><span> ' + item.subjectName +' </span>'
-            })
-            $('div.study_subject').append(str)
-            $('input[name=email]').val(localStorage.getItem('loginedId'))
+            console.log(jsonObj)
+            let study = jsonObj.study
+            let subjects = jsonObj.subjects
+            $('input[name=email]').val(study.studyLeader.email)
+            $('input[name=studyTitle]').val(study.studyTitle)
+            $('select[name=studyCertification]').val(study.studyCertification)
+            $('input[name=studyDiligenceCutline]').val(study.studyDiligenceCutline)
+            $('select[name=studyHomeworkPerWeek]').val(study.studyHomeworkPerWeek)
+            let startDate = new Date(study.studyStartDate)
+            let endDate = new Date(study.studyEndDate)
+            $('input[name=studyStartDate]').val(getDateString(startDate))
+            $('input[name=studyEndDate]').val(getDateString(endDate))
+            $('input[name=studySize]').val(study.studySize)
+            $('input[name=studyFee]').val(study.studyFee)
+            $('textarea[name=studyContent]').val(study.studyContent)
+            setSubjects(study.subjects, subjects)
         }, error: function(xhr) {
-            alert(xhr.status)
+            alert(xhr)
         }
     })
-    //-- 과목 정보 받아오기 END --
+    //-- 스터디 정보, 과목 정보 받아오기 END --
 
-    //-- 스터디 개설버튼 클릭 START --
-    $('#open_study_btn').click(() => {
+    //-- Date 세팅을 위한 Date String 만들기 START --
+    function getDateString(date) {
+        let year = date.getFullYear()
+        let month = date.getMonth() + 1
+        let day = date.getDate()
+        if(day < 10) {
+            day = '0' + day
+        }
+        return year + '-' + month + '-' + day
+    }
+    //-- Date 세팅을 위한 Date String 만들기 START --
+
+    //-- 과목 세팅 function START --
+    function setSubjects(selectedSubject, allSubjects) {
+        //선택된 과목 검색용 Obj 생성
+        let selectedSubjectObj = {}
+        $.each(selectedSubject, function(index, item) {
+            let subjectCode = item.subject.subjectCode
+            let subjectName = item.subject.subjectName
+            selectedSubjectObj[subjectCode] = subjectName
+        })
+        //전체 과목을 순회하면서 Obj에 값이 있는경우에는 checked로 생성
+        let str = ''
+        $.each(allSubjects, function(index, item) {
+            if(index % 5 == 0) {
+                str += '<br>'
+            }
+            if(selectedSubjectObj[item.subjectCode] != undefined) {
+                str += '&nbsp;<input type="checkbox" checked name="subject" value="' + item.subjectCode + '"><span> ' + item.subjectName +' </span>'
+            } else {
+                str += '&nbsp;<input type="checkbox" name="subject" value="' + item.subjectCode + '"><span> ' + item.subjectName +' </span>'
+            }
+        })
+        $('div.study_subject').append(str)
+    }
+    //-- 과목 세팅 function END --
+
+    //-- 스터디 수정버튼 클릭 START --
+    $('#update_study_btn').click(() => {
         $('form').submit()
         return false
     })
@@ -43,18 +89,19 @@ $(function() {
                 sendData[item.name] = item.value
             }
         })
+        sendData.studyId = queryStr[1]
         sendData.subjects = subjects
         if(checkForm(subjects)) {
             $.ajax({
                 xhrFields: {
                     withCredentials: true,
                 },
-                url: backURL + 'study/',
-                method: 'post',
+                url: backURL + 'study/' + queryStr[1],
+                method: 'put',
                 data: JSON.stringify(sendData),
                 contentType:'application/json',
                 success: function() {
-                    alert('스터디가 개설되었습니다')
+                    alert('스터디가 수정되었습니다.')
                     location.href= frontURL + 'index.html'
                 }, error: function(xhr) {
                     alert(xhr.status)
