@@ -132,6 +132,12 @@ $(function(){
             }
         })
     }
+
+    //-- 시작하기 버튼 클릭 이벤트 START --
+    $('a.start_btn').click(() => {
+        window.scrollTo({top: 1050, behavior: "smooth"})
+    })
+    //-- 시작하기 버튼 클릭 이벤트 END --
 })
 var subjectArr = new Array();
 //필터 내용을 저장하는 function
