@@ -53,6 +53,7 @@ $(function(){
                     let $studyCopy = $studyOrigin.clone()
                     let src = "../images/icons/" + study.subjects[0].subject.subjectName + ".svg"
                     $studyCopy.find('div.study_img_box>img').attr('src', src)
+                    $studyCopy.find('div.studyid>span').html(study.studyId)
                     $studyCopy.find('div.startdate>span').html(study.studyStartDate)
                     $studyCopy.find('div.title>span').html(study.studyTitle)
                     $studyCopy.find('div.title>span').html(study.studyTitle)
@@ -102,6 +103,14 @@ $(function(){
         showList(1, option)
     })
     //--검색하기 클릭이벤트 START--
+
+    //--스터디 클릭이벤트 START--
+        $('ul.study_list').on('click', 'li.study', function(e) {
+        let studyId = $(this).find('div.studyid>span').html()
+        location.href = frontURL + 'study_detail.html?studyid=' + studyId
+        return false
+    })
+    //--스터디 클릭이벤트 END--
 
     //--페이지 클릭이벤트 START--
     $('div.page_group>ul').on('click', 'li', (e)=>{
