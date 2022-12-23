@@ -1,30 +1,58 @@
 div.study_create {
     padding-top: 50px;
-    padding-left: 35%;
+    padding-left: 33%;
     padding-bottom: 50px;
 }
-input[name=email] {
-    width: 200px;
+div.study_title {
+    display: inline-block;
 }
+div.study_title input {
+    display: inline-block;
+    width: 465px;
+}
+input[name=email],
 input[name=studySize],
-input[name=studyFee] {
-    width: 185px;
-}
-input[name=studySize] {
-    margin-right: 80px;
-}
-input[name=studyStartDate] {
-    margin-right: 15px;
-}
+input[name=studyFee],
 input[name=studyStartDate],
 input[name=studyEndDate] {
-    width: 180px;
+    width: 160px;
+}
+div.study_date span{
+    display: inline-block;
+    width: 283px;
+}
+div.study_size_fee {
+    display: inline-block;
+    width: 800px;
+}
+div.study_size_fee span {
+    display: inline-block;
+    width: 316px;
 }
 div.study_create_main {
     width: 600px;
 }
 div.study_certification select, input[name=studyDiligenceCutline] {
-    width: 100px;
+    width: 95px;
+}
+div.study_certification {
+    display: inline-block;
+    width: 800px;
+}
+div.study_certification span {
+    margin-right: 8px;
+}
+div.study_subject {
+    width: 800px;
+}
+div.study_subject input {
+    width: 10px;
+    margin-left: 5px;
+}
+div.study_subject span.subject {
+    display: inline-block;
+    width: 117px;
+    margin-top: 2px;
 }
 .delete_btn {
     margin-top: 20px;
