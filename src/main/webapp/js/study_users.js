@@ -42,6 +42,9 @@ $(function() {
                         //풀캘린더 start : value , title : value 설정 해서 homework에 푸쉬한다.
                     })
                     //console.log(homework) 0(index): {start: '2022-11-10', title: '완료'}... 
+
+                    let today = new Date()
+                    let initialDateStr = today.getFullYear() + '-' + (today.getMonth() + 1) + '-01'
                     var calendar = new FullCalendar.Calendar(calendarEl, {
                     headerToolbar: {
                         right: 'dayGridMonth',
@@ -52,7 +55,7 @@ $(function() {
                     return date.date.year + '년 ' + (parseInt(date.date.month) + 1) + '월';
                     //달력 타이틀 설정
                     },
-                    initialDate: '2022-12-01',
+                    initialDate: initialDateStr,
                     events:  homework, 
                     //이벤트 설정 
                     eventColor: '#07ea18',   
