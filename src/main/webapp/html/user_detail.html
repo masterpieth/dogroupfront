@@ -9,25 +9,29 @@
     <link rel="shortcut icon" type="image/x-icon" href="../images/dogroup_favicon.jpg"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../js/basic.js"></script>
+    <script src="../js/index.js"></script>
     <script src="../js/user_detail.js"></script>
   </head>
   <body>
-    <div class="header">
-      <a href="/src/main/webapp/html/index.html" class="logo">
-        <img height="80" src="../images/dogroup_logo_noback.png" alt="logo" />
-      </a>
-      <div class="header_con">
-        <ul class="main_nav">
-          <li><a href="#">스터디 찾기</a></li>
-          <li><a href="#">스터디 개설</a></li>
-          <li><a href="#">진행중인 스터디</a></li>
-        </ul>
-        <ul class="user_nav">
-          <li><a href="#">마이페이지</a></li>
-          <li><a href="#">회원가입</a></li>
-        </ul>
-      </div>
-    </div>
+    <div class="wrap">
+        <div class="header">
+            <a href="/src/main/webapp/html/index.html" class="logo">
+                <img height="80" src="../images/dogroup_logo_noback.png" alt="logo">
+            </a>
+            <div class="header_con">
+                <ul class="main_nav">
+                    <li><a href="../html/index.html">스터디 찾기</a></li>
+                    <li><a href="../html/study_insertform.html">스터디 개설</a></li>
+                    <li><a href="../html/study_mystudylist.html">진행중인 스터디</a></li>
+                </ul>
+                <ul class="user_nav">
+                    <li class="mypage"><a href="../html/user_detail.html">마이페이지</a></li>
+                    <li class="mypage"><a href="../html/user_payment.html">거래내역조회</a></li>
+                    <li class="login"><a href="../html/user_login.html">로그인/회원가입</a></li>
+                    <li class="logout"><a>로그아웃</a></li>
+                </ul>
+            </div>
+        </div>
         <section>
             <br><br><br>
             <form name="info_form">
@@ -84,12 +88,12 @@
                         </tr>
                         <tr class="charge_tr" hidden>
                             <td colspan="2">
-                                <a class="more_position_btn" id="charge_btn">충전</a>
+                                <a class="search_study_btn" id="charge_btn">충전</a>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <a class="more_position_btn" id="update_info">저장</a>
+                                <a class="search_study_btn" id="update_info">저장</a>
                             </td>
                         </tr>
                     </tbody>
@@ -125,7 +129,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <a class="more_position_btn" id="change_pwd">비밀번호 변경</a>
+                                <a class="search_study_btn" id="change_pwd">비밀번호 변경</a>
                             </td>
                         </tr>
                     </tbody>
@@ -148,7 +152,7 @@
                     <tr><td><br></td></tr>
                     <tr>
                         <td>
-                            <a class="more_position_btn" id="delete_user">계정 삭제</a>
+                            <a class="search_study_btn" id="delete_user">계정 삭제</a>
                         </td>
                     </tr>
                 </tbody>
