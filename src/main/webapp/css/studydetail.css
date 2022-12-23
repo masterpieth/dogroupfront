@@ -84,10 +84,12 @@ a{
     float: left;
     width: 75%;
     background-color: #fff;
-    height: 835px;
     margin: 10px;
     margin-left: 20px;
     overflow: auto;
+  }
+  section.content_section {
+    width: 90%;
   }
   .content_detail {
     display: flex;
@@ -96,7 +98,7 @@ a{
     flex-direction: column;
     row-gap: 1.5rem;
     margin-top: 1.5rem;
-    padding: 1.5rem;
+    padding: 10px;
     word-break: keep-all;
     background-color: #fff;
 }

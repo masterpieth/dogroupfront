@@ -1,18 +1,18 @@
 $(function(){
-    showMenu()
     //--계정 유효성 테스트 START--
     let queryStr = location.search.substr(1).split('=')
+    
     switch(queryStr[0]) {
         case 'status':
             alert('탈퇴된 회원입니다. 다른 계정으로 가입해주세요.')
-            return false
+            break;
         case 'email':
             localStorage.setItem('loginedId', queryStr[1])
             history.replaceState({}, null, location.pathname)
-            return false
+            break;
     }
+    showMenu()
     //--계정 유효성 테스트 END--
-
     //--로그아웃 START--
     $('ul.user_nav li.logout a').click(() => {
         $.ajax({
