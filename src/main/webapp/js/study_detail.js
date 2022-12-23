@@ -182,4 +182,24 @@ $(function() {
         })
     })
     //-- 스터디 참가신청 버튼 클릭 END --
+    
+    //--calendar 상세보기 버튼 클릭 START--
+    let $section = $('section.content_section')
+    $("nav>ul>li>a").click((e)=>{
+        let resource =$(e.target).attr('href')
+        switch(resource){
+        case '':
+        case 'calendar.html': 
+            $section.load(resource, function(responseTxt, statusTxt, xhr){
+                if(xhr.status == 404){
+                    alert(resource + '이 없습니다')
+                }else if(xhr.status == 500){
+                    alert('서버 오류 확인하세요')
+                }
+            })
+            break;
+        }
+        return false;
+    })
+    //--calendar 상세보기 버튼 클릭 END--
 })
