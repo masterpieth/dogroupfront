@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>스터디상세페이지</title>
     <link rel="stylesheet" href="../css/index.css" />
-    <link rel="stylesheet" href="../css/studydetail.css" />
+    <link rel="stylesheet" href="../css/study_detail.css" />
     <link
       rel="shortcut icon"
       type="image/x-icon"
@@ -13,7 +13,7 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../js/basic.js"></script>
-    <script src="../js/studydetail.js"></script>
+    <script src="../js/study_detail.js"></script>
   </head>
   <body>
     <header>
@@ -86,7 +86,7 @@
               <div class="study_explain" role="row">
                 <div role="cell17">스터디 소개 </div>
                 <div role="cell18">
-                  <textarea  rows="20" cols="80" name="studyContent">
+                  <textarea  rows="20" cols="80" name="studyContent" readonly>
                   </textarea>
                 </div>
               </div>
@@ -97,23 +97,26 @@
 
       </section>
       <aside class="aside">
-        <div class="aside_atag">
-          <a  href="#">출석하기</a>
+        <div class="aside_atag homework_btn" hidden>
+          <a class="homework_btn">출석하기</a>
+        </div>
+        <div class="aside_atag homework_done" hidden>
+          <a class="homework_done">출석완료</a>
         </div>
         
         <div class="study_captain">
           <section style="text-align: center; font-size: large; font-weight: bold">
             <div>
               <table border="1" style="display: inline-table; border-collapse: collapse; width: 100%;" align="center">
-                <tr>총 참여스터디</tr>
-                <th>스터디장</th>
+                <tr>스터디장</tr>
+                <th>이름</th>
                 <th class="leader"></th>
                 <tr>
                   <td>성실도</td>
                   <td class="diligence"></td>
                 </tr>
                 <tr>
-                  <td>총 참여<br>스터디</td>
+                  <td>총참여<br>스터디</td>
                   <td class="study_cnt"></td>
                 </tr>
               </table>

@@ -130,7 +130,7 @@ textarea{
 
   }
 
-  aside a{
+  aside a.homework_btn{
     text-align: center;
     background: #0054f4;
     width: 210px;
@@ -144,10 +144,23 @@ textarea{
     color: #fff;
   }
 
- aside a:hover {
+ aside a.homework_btn:hover {
     background-color: whitesmoke; 
     color: #0054f4;
 }
+aside a.homework_done{
+    text-align: center;
+    background: #B2C0CC;
+    width: 210px;
+    height: 42px;
+    display: inline-block;
+    line-height: 42px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
 
  aside div>section{
    text-align: center;
