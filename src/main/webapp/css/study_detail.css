@@ -130,7 +130,8 @@ textarea{
 
   }
 
-  aside a.homework_btn{
+  aside a.homework_btn,
+  aside a.join_study {
     text-align: center;
     background: #0054f4;
     width: 210px;
@@ -144,7 +145,8 @@ textarea{
     color: #fff;
   }
 
- aside a.homework_btn:hover {
+ aside a.homework_btn:hover,
+ aside a.join_study:hover {
     background-color: whitesmoke; 
     color: #0054f4;
 }

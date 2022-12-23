@@ -6,6 +6,7 @@
     <title>스터디상세페이지</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/study_detail.css" />
+    <link rel="stylesheet" href="../css/study_insert_form.css">
     <link
       rel="shortcut icon"
       type="image/x-icon"
@@ -38,13 +39,13 @@
           <header>
             <h2>Do It With Python
               <br>
-              <span class="post_date"></span>
             </h2>
           </header>
         </div>
         <br />
-
+        
         <section class="content_section">
+          <h3 class="post_date"></h3>
           <div class="content_detail" role="table">
             <div class="content_detail2">
               <div class="title" role="row">
@@ -86,7 +87,7 @@
               <div class="study_explain" role="row">
                 <div role="cell17">스터디 소개 </div>
                 <div role="cell18">
-                  <textarea  rows="20" cols="80" name="studyContent" readonly>
+                  <textarea  rows="20" cols="80" name="studyContent" readonly style="resize: none;">
                   </textarea>
                 </div>
               </div>
@@ -102,6 +103,9 @@
         </div>
         <div class="aside_atag homework_done" hidden>
           <a class="homework_done">출석완료</a>
+        </div>
+        <div class="aside_atag join_study" hidden>
+          <a class="join_study">참가신청</a>
         </div>
         
         <div class="study_captain">
@@ -119,12 +123,18 @@
                   <td>총참여<br>스터디</td>
                   <td class="study_cnt"></td>
                 </tr>
+                <tr>
+                  <td colspan="2">
+                  </td>
+                </tr>
               </table>
+              <div class="leave_study" hidden>
+                <a class="delete_btn leave_study_btn">스터디 탈퇴</a>
+              </div>
             </div>
           </section>
         </aside>
       </div>
-
     <footer>
       <div class="container">
           <h6 class="footer_title">
