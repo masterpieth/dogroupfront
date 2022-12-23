@@ -5,53 +5,40 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="../lib/fullcalendar/dist/index.global.js"></script>
         <script src="../js/basic.js"></script>
+        <script src="../js/study_detail.js"></script>
         <script>
             //--FullCalender Start--
             $(function(){
                 var calendarEl = document.getElementById('calendar');
-                let email = 'user10@gmail.com'
-                data = {email} 
-                $.ajax({
-                    xhrFields: {
-                        withCredentials: true
-                    },
-                    url: backURL + 'study/users/61',
-                    method : 'post',
-                    data : JSON.stringify(data),          
-                    headers: {'Content-Type': 'application/json'},
-                    success: function(jsonObj){
-                        var homework = new Array()
-                        $(jsonObj.homeworkList).each(function(index, item) {
-                            // console.log(item.studySubmitDt) email
-                            let obj = {}
-                            obj['start'] = item.studySubmitDt
-                            obj['title'] = '완료'
-                            homework.push(obj)
-                            //풀캘린더 start : value , title : value 설정 해서 homework에 푸쉬한다.
-                        })
-                        //console.log(homework) 0(index): {start: '2022-11-10', title: '완료'}... 
-                        var calendar = new FullCalendar.Calendar(calendarEl, {
-                        headerToolbar: {
-                            right: 'dayGridMonth',
-                            right: 'prev,next today',
-                        //달력 헤더 설정 
-                        }, 
-                        titleFormat : function(date) {
-                        return date.date.year + '년 ' + (parseInt(date.date.month) + 1) + '월';
-                        //달력 타이틀 설정
-                        },
-                        initialDate: '2022-12-01',
-                        events:  homework, 
-                        //이벤트 설정 
-                        eventColor: '#07ea18',   
-                        });
-                        calendar.render();
-                        //달력 랜더링
-                    }, error: function(xhr) {
-                        alert(xhr.status)
-                    }
-                })       
-            });
+                let eventArr = new Array()
+                let colorArr = ['#E57373', '#FFAB91', '#FFF59D', '#A5D6A7', '#81D4FA', '#9FA8DA', '#B39DDB','#BDBDBD','#D7CCC8','#80DEEA']
+                $(studyUserList).each(function(index, user) {
+                    let homeworkList = user.homeworkList
+                    $(homeworkList).each(function(index2, homework) {
+                        let obj = {}
+                        obj['title'] = homework.email
+                        obj['start'] = homework.studySubmitDt
+                        obj['color'] = colorArr[index]
+                        eventArr.push(obj)
+                    })
+                })
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                headerToolbar: {
+                    right: 'dayGridMonth',
+                    right: 'prev,next today',
+                //달력 헤더 설정 
+                }, 
+                titleFormat : function(date) {
+                return date.date.year + '년 ' + (parseInt(date.date.month) + 1) + '월';
+                //달력 타이틀 설정
+                },
+                initialDate: '2022-12-01',
+                events:  eventArr, 
+                //이벤트 설정 
+                })
+                calendar.render();
+                //달력 랜더링
+            })
         //--FullCalender END--
         </script>
     </head>

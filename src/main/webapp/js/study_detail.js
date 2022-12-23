@@ -1,3 +1,4 @@
+let studyUserList
 $(function() {
     //-- 출석하기 요청을 위한 변수 세팅 START --
     let studyId =''
@@ -28,7 +29,6 @@ $(function() {
         },
         url: backURL + 'study/' + queryStr[1],
         success: function(jsonObj) {
-            console.log(jsonObj)
             
             let study = jsonObj.study
 
@@ -36,6 +36,7 @@ $(function() {
             studyId = study.studyId
             certification = study.studyCertification
             studyFee = study.studyFee
+            studyUserList = jsonObj.studyUserList
             //-- 상단 변수 세팅 END --
             
             //-- 정산 필요 여부 체크--
@@ -52,17 +53,23 @@ $(function() {
             //-- 정산 필요 여부 체크--
             //alert(study.studyEndDate)   
             if(jsonObj.loginedStudyUser != null) {
+                $('nav.study_detail_nav').show()
                 //-- 출석하기 버튼, 스터디 탈퇴 토글 START --
                 let loginedUserHomeworkList = jsonObj.loginedStudyUser.homeworkList
                 if(jsonObj.loginedStudyUser.email == null) {
-                    $('div.aside_atag').hide()
+                    $('div.homework_btn').hide()
+                    $('div.homework_done').hide()
+                    $('div.join_study').show()
                 } else if(checkHomework(loginedUserHomeworkList)) {
-                    $('div.aside_atag').show()
                     $('div.homework_btn').hide()
                     $('div.homework_done').show()
                 } else if(!checkHomework(loginedUserHomeworkList)) {
-                    $('div.aside_atag').show()
+                    $('div.join_study').hide()
                     $('div.homework_btn').show()
+                    $('div.homework_done').hide()
+                }
+                if((new Date().getTime() -  new Date(study.studyEndDate).getTime()) > 0) {
+                    $('div.homework_btn').hide()
                     $('div.homework_done').hide()
                 }
                 //-- 출석하기 버튼 토글 END --
@@ -70,15 +77,17 @@ $(function() {
                 //-- 스터디 탈퇴 버튼 토글 START --
                 if(jsonObj.loginedStudyUser.email == null) {
                     $('div.leave_study').hide()
-                } else if(new Date() < new Date(study.studyStartDate)) {
+                } else if((new Date().getTime() -  new Date(study.studyStartDate).getTime()) < 0) {
                     $('div.leave_study').show()
+                    $('div.homework_btn').hide()
+                    $('div.homework_done').hide()
                 }
                 //-- 스터디 탈퇴 버튼 토글 END --
             } else {
-                if(new Date() < new Date(study.studyStartDate)) {
+                $('nav.study_detail_nav').hide()
+                $('div.aside_atag').hide()
+                if((new Date().getTime() -  new Date(study.studyStartDate).getTime()) < 0) {
                     $('div.join_study').show()
-                } else {
-                    $('div.join_study').hide()
                 }
             }
 
@@ -165,7 +174,19 @@ $(function() {
 
     //-- 스터디 탈퇴하기 버튼 클릭 START --
     $('a.leave_study_btn').click(() => {
-        
+        $.ajax({
+            url: backURL + 'study/join/' + studyId,
+            xhrFields: {
+                withCredentials: true
+            },
+            method: 'delete',
+            success: function() {
+                alert('탈퇴에 성공했습니다.')
+                location.href= frontURL + 'index.html'
+            }, error: function(xhr) {
+                alert(xhr.responseText)
+            }
+        })
     })
     //-- 스터디 탈퇴하기 버튼 클릭 END --
 
@@ -187,7 +208,6 @@ $(function() {
                 sendData.studyFee = studyFee
                 sendData.studyId = studyId
                 sendData.studyCertification = certification
-                console.log(sendData)
                 $.ajax({
                     url: backURL + 'study/join/' + studyId,
                     method: 'post',
@@ -217,7 +237,8 @@ $(function() {
     $("nav>ul>li>a").click((e)=>{
         let resource =$(e.target).attr('href')
         switch(resource){
-        case '':
+        case 'study_info.html':
+        case 'study_users.html':
         case 'calendar.html': 
             $section.load(resource, function(responseTxt, statusTxt, xhr){
                 if(xhr.status == 404){
@@ -231,4 +252,10 @@ $(function() {
         return false;
     })
     //--calendar 상세보기 버튼 클릭 END--
+
+    //-- 스터디 정보 클릭 이벤트 START --
+    $('a.study_info').click(() => {
+        location.reload()
+    })
+    //-- 스터디 정보 클릭 이벤트 END --
 })

@@ -114,7 +114,9 @@ textarea{
     column-gap: 1rem;
     grid-template-columns: 5.5rem auto;
 }
-
+a.study_info {
+  cursor: pointer;
+}
 .aside_atag{
     text-align: center;
 }
@@ -228,13 +230,4 @@ nav {
     line-height: 50px;
     border : 1px solid;
     text-align: center;
-  }
-
-  section.content_section {
-    float: left;
-    width: 100%;
-    background-color: #ffffff;
-    height: 835px;
-    margin: 10px;
-    overflow: auto;
   }
