@@ -9,8 +9,28 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="../js/basic.js"></script>
         <script src="../js/user_signup.js"></script>
+        <script src="../js/index.js"></script>
     </head>
-    <body>
+    <body> 
+        <div class="wrap">
+            <div class="header">
+                <a href="/src/main/webapp/html/index.html" class="logo">
+                    <img height="80" src="../images/dogroup_logo_noback.png" alt="logo">
+                </a>
+                <div class="header_con">
+                    <ul class="main_nav">
+                        <li><a href="../html/index.html">스터디 찾기</a></li>
+                        <li><a href="../html/study_insertform.html">스터디 개설</a></li>
+                        <li><a href="../html/study_mystudylist.html">진행중인 스터디</a></li>
+                    </ul>
+                    <ul class="user_nav">
+                        <li class="mypage"><a href="../html/user_detail.html">마이페이지</a></li>
+                        <li class="mypage"><a href="../html/user_payment.html">거래내역조회</a></li>
+                        <li class="login"><a href="../html/user_login.html">로그인/회원가입</a></li>
+                        <li class="logout"><a>로그아웃</a></li>
+                    </ul>
+                </div>
+            </div>
             <!--start header-->
             <!--end header-->
             <section class="signup_section" style="margin-bottom: 200px;">
@@ -39,7 +59,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <a class="more_position_btn" id="submit">
+                                        <a class="search_study_btn" id="submit">
                                         가입하기
                                         </a>
                                     </td>
