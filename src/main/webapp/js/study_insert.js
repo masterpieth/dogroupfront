@@ -8,7 +8,7 @@ $(function() {
                 if(index % 5 == 0) {
                     str += '<br>'
                 }
-                str += '&nbsp;<input type="checkbox" name="subject" value="' + item.subjectCode + '"><span> ' + item.subjectName +' </span>'
+                str += '<span class="subject">&nbsp;<input type="checkbox" name="subject" value="' + item.subjectCode + '"><span class="subjectname"> ' + item.subjectName +' </span></span>'
             })
             $('div.study_subject').append(str)
             $('input[name=email]').val(localStorage.getItem('loginedId'))
