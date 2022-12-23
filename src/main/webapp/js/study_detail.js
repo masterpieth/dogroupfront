@@ -4,6 +4,22 @@ $(function() {
     let certification = ''
     let loginedId = localStorage.getItem('loginedId')
     let studyFee = ''
+    //--정산 요청을 위한 함수 START--
+    function endStudy() {
+        $.ajax({
+        xhrFields:{
+            withCredentials: true
+        },
+        url: backURL + 'study/end/' + studyId,
+        method: 'put',
+        success: function(jsonObj) {
+            alert('정산 완료') //정산 결과 띄어주는 기능 추가 후 삭제할 것@@@@@@@@@@@@@@@@@@@@@
+        }, error: function(xhr) {
+            alert(xhr.status)
+        }
+    })
+    }
+    //--정산 요청을 위한 함수  END--
     //-- 출석하기 요청을 위한 변수 세팅 END --
     let queryStr = location.search.substr(1).split('=')
     $.ajax({
@@ -21,7 +37,20 @@ $(function() {
             certification = study.studyCertification
             studyFee = study.studyFee
             //-- 상단 변수 세팅 END --
-
+            
+            //-- 정산 필요 여부 체크--
+            let today = new Date()
+            let year = today.getFullYear()
+            let month = ('0' + (today.getMonth() + 1)).slice(-2)
+            let day = ('0' + today.getDate()).slice(-2)
+            let todayString = year + '-' + month  + '-' + day
+            if((study.studyPaid==0)&(study.studyEndDate < todayString)) {
+                //스터디의 종료날짜가 오늘보다 빠르고, 스터디 정산 여부가 0이면 정산을 실시한다.
+                alert('정산이 필요합니다.') //정산 결과 띄어주는 기능 추가 후 삭제할 것@@@@@@@@@@@@@@@@@@@@@
+                endStudy();
+            }
+            //-- 정산 필요 여부 체크--
+            //alert(study.studyEndDate)   
             if(jsonObj.loginedStudyUser != null) {
                 //-- 출석하기 버튼, 스터디 탈퇴 토글 START --
                 let loginedUserHomeworkList = jsonObj.loginedStudyUser.homeworkList
