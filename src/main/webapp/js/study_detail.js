@@ -97,6 +97,9 @@ $(function() {
                     $('div.homework_btn').show()
                     $('div.homework_done').hide()
                 }
+                if((new Date().getTime() -  new Date(study.studyStartDate).getTime()) < 0) {
+                    $('nav.study_detail_nav').hide()
+                }
                 if((new Date().getTime() -  new Date(study.studyEndDate).getTime()) > 0) {
                     $('div.homework_btn').hide()
                     $('div.homework_done').hide()
@@ -203,12 +206,18 @@ $(function() {
 
     //-- 스터디 탈퇴하기 버튼 클릭 START --
     $('a.leave_study_btn').click(() => {
+        let sendData = {}
+        sendData.studyFee = studyFee
+        sendData.studyId = studyId
+        sendData.studyCertification = certification
         $.ajax({
             url: backURL + 'study/join/' + studyId,
             xhrFields: {
                 withCredentials: true
             },
             method: 'delete',
+            data: JSON.stringify(sendData),
+            contentType: 'application/json',
             success: function() {
                 alert('탈퇴에 성공했습니다.')
                 location.href= frontURL + 'index.html'

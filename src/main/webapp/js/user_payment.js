@@ -9,6 +9,7 @@ $(function() {
                 'currentPage' : currentPage
             },
             success: function(jsonObj) {
+                console.log(jsonObj)
                 let $trOrigin = $('table > tbody > tr:eq(0)')
                 $trOrigin.show()
                 $('table > tbody').html('')
@@ -60,26 +61,27 @@ $(function() {
                     $trCopy.find('td:eq(5)').find('span:eq(1)').html(priceStr.replace(/\B(?=(\d{3})+(?!\d))/g, ","))
                     $trCopy.find('td:eq(5)').find('span:eq(3)').html('\\' + item.walletBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
                     $('table > tbody').append($trCopy)
-                    //페이지 목록 만들기
-                    let startPage = jsonObj.startPage                //페이지 목록 그룹에서의 시작 페이지
-                    let endPage = jsonObj.endPage                    //페이지 목록 그룹에서의 끝 페이지
-                    let cntPerPageGroup = jsonObj.cntPerPageGroup    //페이지 그룹수
-                    let totalPage = jsonObj.totalPage;               //총페이지수
-
-                    let liStr = '';
-                    if(currentPage > (cntPerPageGroup/2 + 1)) {
-                        liStr += '<li class="' + (startPage - 1) + '">PREV</li>'
-                    
-                    }
-                    for(let i=startPage; i<=endPage; i++){
-                        liStr += (i==currentPage) ? '<li class="current">' + i + '</li>' : '<li class="' + i +'">' + i + '</li>'
-                        
-                    }
-                    if(currentPage < totalPage - (cntPerPageGroup/2)) {
-                        liStr += '<li class="' + (endPage + 1) + '">NEXT</li>'
-                    }
-                    $('div.pages>ul').html(liStr)
                 })
+                //페이지 목록 만들기
+                let startPage = jsonObj.startPage                //페이지 목록 그룹에서의 시작 페이지
+                let endPage = jsonObj.endPage                    //페이지 목록 그룹에서의 끝 페이지
+                let cntPerPageGroup = jsonObj.cntPerPageGroup    //페이지 그룹수
+                let totalPage = jsonObj.totalPage;               //총페이지수
+
+                let liStr = '';
+                if(currentPage > (cntPerPageGroup/2 + 1)) {
+                    liStr += '<li class="' + (startPage - 1) + '">PREV</li>'
+                
+                }
+                for(let i=startPage; i<=endPage; i++){
+                    liStr += (i==currentPage) ? '<li class="current">' + i + '</li>' : '<li class="' + i +'">' + i + '</li>'
+                    
+                }
+                if(currentPage < totalPage - (cntPerPageGroup/2)) {
+                    liStr += '<li class="' + (endPage + 1) + '">NEXT</li>'
+                }
+                console.log(liStr)
+                $('div.page_group_payment > ul').html(liStr)
             }, error: function(xhr) {
                 alert(xhr)
             }
@@ -87,9 +89,10 @@ $(function() {
     }
     showList(1)
     //—페이지 클릭이벤트 START—
-    $('div.pages>ul').on('click', 'li', (e)=>{
+    $('div.page_group_payment>ul').on('click', 'li', (e)=>{
         let currentPage = $(e.target).attr('class')
-        showList(((currentPage == 'current') ? $(e.target).html() : currentPage))
+        if(currentPage == 'current') { return false } 
+        else { showList(currentPage) }
     })
     //—페이지 클릭이벤트 END—
 })

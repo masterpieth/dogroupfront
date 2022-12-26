@@ -92,7 +92,7 @@ $(function(){
                 }
                 $('div.page_group>ul').html(liStr)
             },
-            eroor : function(xhr){
+            error : function(xhr){
                 alert('오류 : ' + xhr)
             }
         })

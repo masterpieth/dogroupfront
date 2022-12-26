@@ -110,7 +110,32 @@ section div.user_wallet_section{
   }
 /***** table section *****/
 
+/***** page_group *****/
+div.page_group_payment {
+    text-align: center;
+    padding: 30px;
+}
 
+div.page_group_payment > ul li {
+    list-style: none;
+    padding: 10px;
+    display: inline-block;
+    font-size: 20px;
+    
+}
+div.page_group_payment > ul li.focus {
+    background-color: #0078FF;
+    color: white;
+}
+
+div.page_group_payment > ul li:hover {
+    background-color: #0078FF;
+    color: white;
+}
+div.page_group_payment > ul li.current {
+    background-color: #0078FF;
+    color: white;
+}
 
 /***** footer *****/
 footer{

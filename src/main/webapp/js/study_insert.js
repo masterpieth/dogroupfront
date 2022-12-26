@@ -57,7 +57,7 @@ $(function() {
                     alert('스터디가 개설되었습니다')
                     location.href= frontURL + 'index.html'
                 }, error: function(xhr) {
-                    alert(xhr.status)
+                    alert(xhr)
                 }
             })
             return false
