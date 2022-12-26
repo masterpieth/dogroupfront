@@ -132,7 +132,6 @@ $(function(){
     //--페이지 클릭이벤트 START--
     $('div.page_group>ul').on('click', 'li', (e)=>{
         let clickPage = $(e.target).attr('class')
-        alert(clickPage)
         if(clickPage == 'current') { return false }
         else if(clickPage == 'PREV') {
             currentPage = currentPage - 1
