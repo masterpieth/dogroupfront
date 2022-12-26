@@ -9,7 +9,7 @@ $(function() {
     $('div.study_end').hide()
     //-- 정산 요청을 위한 함수 START --
     function endStudy() {
-        $(div.study_end).show()
+        $('div.study_end').show()
         $.ajax({
         xhrFields:{
             withCredentials: true
@@ -65,22 +65,24 @@ $(function() {
             studyUserList = jsonObj.studyUserList
             //-- 상단 변수 세팅 END --
             
-            //-- 정산 필요 여부 체크--
-            let today = new Date()
-            let year = today.getFullYear()
-            let month = ('0' + (today.getMonth() + 1)).slice(-2)
-            let day = ('0' + today.getDate()).slice(-2)
-            let todayString = year + '-' + month  + '-' + day
-            if((study.studyPaid==0)&(study.studyEndDate < todayString)) {
-                //스터디의 종료날짜가 오늘보다 빠르고, 스터디 정산 여부가 0이면 정산을 실시한다.
-                endStudy()
-            } else if(study.studyEndDate < todayString) {
-                endStudyPrize()
-            }
-            //-- 정산 필요 여부 체크--
             //alert(study.studyEndDate)   
             if(jsonObj.loginedStudyUser != null) {
                 $('nav.study_detail_nav').show()
+
+                //-- 정산 필요 여부 체크 START--
+                let today = new Date()
+                let year = today.getFullYear()
+                let month = ('0' + (today.getMonth() + 1)).slice(-2)
+                let day = ('0' + today.getDate()).slice(-2)
+                let todayString = year + '-' + month  + '-' + day
+                if((study.studyPaid==0)&(study.studyEndDate < todayString)) {
+                //스터디의 종료날짜가 오늘보다 빠르고, 스터디 정산 여부가 0이면 정산을 실시한다.
+                    endStudy()
+                } else if(study.studyEndDate < todayString) {
+                    endStudyPrize()
+                }
+                //-- 정산 필요 여부 체크 END--
+                
                 //-- 출석하기 버튼, 스터디 탈퇴 토글 START --
                 let loginedUserHomeworkList = jsonObj.loginedStudyUser.homeworkList
                 if(jsonObj.loginedStudyUser.email == null) {
