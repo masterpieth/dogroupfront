@@ -114,21 +114,24 @@ textarea{
     column-gap: 1rem;
     grid-template-columns: 5.5rem auto;
 }
-<<<<<<< Updated upstream
+
 a.study_info {
   cursor: pointer;
 }
-=======
+
 
 
 div.finished_study table td {
   padding-top: 2px;
   width: 100px;
 }
+
+div.finished_study input {
+  display: inline-block;
+  width: 110px;
+}
   
 
-
->>>>>>> Stashed changes
 .aside_atag{
     text-align: center;
 }
@@ -138,7 +141,7 @@ div.finished_study table td {
     margin-left: 12px;
     margin-top: 10px;
     width: 20%;
-    height: 835px;      /*부모의 높이가 미리 결정되어있어야 비율%사용가능 */
+    height: 800px;      /*부모의 높이가 미리 결정되어있어야 비율%사용가능 */
     float: left;
     background-color: #fff ;
 
@@ -181,10 +184,8 @@ aside a.homework_done{
  aside div>section{
    text-align: center;
    box-sizing: border-box;
-   height: 300px;
-   padding: 0;
-   border: 0;
-   margin: 40px;
+   height: 600px;
+
        
  }
 

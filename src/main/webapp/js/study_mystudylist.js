@@ -29,8 +29,19 @@ $(function(){
         })
     })
     //--로그아웃 END--
+   
+    //--참가비 유무체크 START--
+     $('div.container select.fee').change((e) => {
+        $studyFee = $('div.container input[name=studyFee]')
+        if(e.target.value == '없음') {
+            $studyFee.val('')
+            $studyFee.attr("disabled", true)
+        }else {
+            $studyFee.attr("disabled", false)
+        }
+    })
+    //--참가비 유무체크 END--
     
-    //--검색조건 유효성검사 END--
     //--스터디 목록 보여주기 START--
     function showList(currentPage, option) {
         let studyAllList
