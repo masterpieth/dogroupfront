@@ -69,7 +69,12 @@ $(function(){
                     $studyCopy.find('div.title>span').html(study.studyTitle)
                     $studyCopy.find('div.title>span').html(study.studyTitle)
                     $studyCopy.find('div.info>span').html(study.studyLeader.name + ' | ' + study.studyFee + '원 | ' + study.studyDiligenceCutline + '점 | ' + study.studyEndDate)
-                    $studyCopy.find('div.subject>span').html(study.subjects[0].subject.subjectName+ ' | ' + study.subjects[1].subject.subjectName + ' | ' + study.subjects[2].subject.subjectName)
+                    $studyCopy.find('div.info>span').html(study.studyLeader.name + ' | ' + study.studyFee + '원 | ' + study.studyDiligenceCutline + '점 | ' + study.studyEndDate)
+                    let subjectStr = study.subjects[0].subject.subjectName
+                    for(let i=1; i<study.subjects.length; i++){
+                        subjectStr += (' | ' + study.subjects[i].subject.subjectName)
+                    }
+                    $studyCopy.find('div.subject>span').html(subjectStr)
                     $studylist.append($studyCopy)
                 })
                 $studyOrigin.hide()
@@ -152,6 +157,20 @@ $(function(){
             }
         })
     }
+    //-- 스터디 검색 조건 유효성 검사 최댓값 설정 START--
+    $('div.container input[name=studyDiligenceCutline]').on("propertychange change keyup paste input", () => {
+        if($('div.container input[name=studyDiligenceCutline]').val()>999)
+            $('div.container input[name=studyDiligenceCutline]').val('999')
+    })
+    $('div.container input[name=studySize]').on("propertychange change keyup paste input", () => {
+        if($('div.container input[name=studySize]').val()>100)
+            $('div.container input[name=studySize]').val('100')
+    })
+    $('div.container input[name=studyFee]').on("propertychange change keyup paste input", () => {
+        if($('div.container input[name=studyFee]').val()>200000)
+            $('div.container input[name=studyFee]').val('200000')
+    })
+    //-- 스터디 검색 조건 유효성 검사 최댓값 설정 END--
 })
 var subjectArr = new Array();
 //필터 내용을 저장하는 function
@@ -186,3 +205,4 @@ function checkForm() {
     }
     return ture
 }
+//--검색조건 유효성검사 END--

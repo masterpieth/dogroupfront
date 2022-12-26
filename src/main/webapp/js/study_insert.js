@@ -8,7 +8,7 @@ $(function() {
                 if(index % 5 == 0) {
                     str += '<br>'
                 }
-                str += '<span class="subject">&nbsp;<input type="checkbox" name="subject" value="' + item.subjectCode + '"><span class="subjectname"> ' + item.subjectName +' </span></span>'
+                str += '<span class="subject">&nbsp;<input onclick="subjectValidation(this)" type="checkbox" name="subject" value="' + item.subjectCode + '"><span class="subjectname"> ' + item.subjectName +' </span></span>'
             })
             $('div.study_subject').append(str)
             $('input[name=email]').val(localStorage.getItem('loginedId'))
@@ -87,7 +87,6 @@ $(function() {
         }
         let today = new Date()
         let startDate = new Date($('input[name=studyStartDate]').val())
-        let endDate = new Date($('input[name=studyEndDate]').val())
         if($('input[name=studyStartDate]').val() == '') {
             alert('시작일을 선택하세요')
             return false
@@ -95,18 +94,8 @@ $(function() {
             alert('오늘 또는 오늘보다 이전 날짜는 선택할 수 없습니다')
             return false
         }
-        if($('input[name=studyEndDate]').val() == '') {
-            alert('종료일을 선택하세요')
-            return false
-        } else if(endDate < today) {
-            alert('오늘 또는 오늘보다 이전 날짜는 선택할 수 없습니다')
-            return false
-        } else if(endDate < startDate) {
-            alert('시작일은 종료일보다 앞이어야 합니다')
-            return false
-        }
-        if((endDate.getDay() - startDate.getDay()) % 7 != 0) {
-            alert('스터디 기간은 7일단위로 설정해주세요')
+        if($('input[name=studyPeriod]').val() == '') {
+            alert('스터디 진행 기간을 입력해주세요')
             return false
         }
         if($('input[name=studySize]').val() == '') {
@@ -128,4 +117,57 @@ $(function() {
         return true
     }
     //-- Form 유효성 검사 END --
+
+    //-- 스터디 기간(주차)설정 이벤트 START --
+    $('div.study_date input[name=studyPeriod]').on("propertychange change keyup paste input", (e) => {
+        $studyPeriod = $('div.study_date input[name=studyPeriod]')
+        period = $studyPeriod.val()
+        if($('input[name=studyStartDate]').val()=='') {
+            alert('시작 날짜를 설정해주세요.')
+            $studyPeriod.val('')
+        }
+        else {
+            if(period>104) {$studyPeriod.val('104')}
+            let $startDate = new Date($('input[name=studyStartDate]').val())
+            let endDate = new Date()
+            endDate.setDate($startDate.getDate() + Number(period)*7-1)
+            let year = endDate.getFullYear()
+            let month = ('0' + (endDate.getMonth() + 1)).slice(-2)
+            let day = ('0' + endDate.getDate()).slice(-2)
+            let endDateString = year + '-' + month  + '-' + day
+            $('div.study_date input[name=studyEndDate]').val(endDateString)
+        }
+    })
+    //-- 스터디 기간(주차)설정 이벤트 END --
+
+    //-- 스터디 유효성 검사 최댓값 설정 START--
+    $('div.study_certification input[name=studyDiligenceCutline]').on("propertychange change keyup paste input", (e) => {
+        if($('div.study_certification input[name=studyDiligenceCutline]').val()>999)
+            $('div.study_certification input[name=studyDiligenceCutline]').val('999')
+    })
+    $('div.study_size_fee input[name=studySize]').on("propertychange change keyup paste input", (e) => {
+        if($('div.study_size_fee input[name=studySize]').val()>100)
+            $('div.study_size_fee input[name=studySize]').val('100')
+    })
+    $('div.study_size_fee input[name=studyFee]').on("propertychange change keyup paste input", (e) => {
+        if($('div.study_size_fee input[name=studyFee]').val()>200000)
+            $('div.study_size_fee input[name=studyFee]').val('200000')
+    })
+    //-- 스터디 유효성 검사 최댓값 설정 END--
 })
+//-- 과목 체크박스 선택 최대 3개 유효성 검사 함수 START--
+let maxSubject = 3
+let subjectCnt = 0
+function subjectValidation(subject) {
+    if(subject.checked) {
+        subjectCnt++
+    } else {
+        subjectCnt--
+    }
+    if(subjectCnt>3) {
+        alert("선택 가능한 과목은 최대 3개입니다.")
+        subject.checked = false;
+        subjectCnt--
+    }
+}
+//-- 과목 체크박스 선택 최대 3개 유효성 검사 함수 END--
