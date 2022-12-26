@@ -5,6 +5,7 @@ $(function() {
     let certification = ''
     let loginedId = localStorage.getItem('loginedId')
     let studyFee = ''
+    let leaderEmail = ''
     //-- 출석하기 요청을 위한 변수 세팅 END --
     $('div.study_end').hide()
     //-- 정산 요청을 위한 함수 START --
@@ -64,6 +65,7 @@ $(function() {
             certification = study.studyCertification
             studyFee = study.studyFee
             studyUserList = jsonObj.studyUserList
+            leaderEmail = study.studyLeader.email
             //-- 상단 변수 세팅 END --
             
             //alert(study.studyEndDate)   
@@ -157,7 +159,7 @@ $(function() {
             //-- 스터디 내용 세팅 END --
 
         }, error: function(xhr) {
-            alert(xhr.status)
+            alert(xhr.responseText)
         }
     })
     
@@ -212,6 +214,26 @@ $(function() {
 
     //-- 스터디 탈퇴하기 버튼 클릭 START --
     $('a.leave_study_btn').click(() => {
+        if(loginedId == leaderEmail) {
+            if(!confirm('스터디장이 탈퇴시, 스터디가 삭제됩니다. 진행하시겠습니까?')) {
+                return false
+            } else {
+                $.ajax({
+                    xhrFields: {
+                        withCredentials: true,
+                    },
+                    url: backURL + 'study/' + studyId,
+                    method: 'delete',
+                    success: function() {
+                        alert('스터디가 삭제되었습니다.')
+                        location.href= frontURL + 'index.html'
+                    }, error: function(xhr) {
+                        alert(xhr)
+                    }
+                })
+                return false
+            }
+        }
         let sendData = {}
         sendData.studyFee = studyFee
         sendData.studyId = studyId
@@ -302,4 +324,10 @@ $(function() {
         location.reload()
     })
     //-- 스터디 정보 클릭 이벤트 END --
+
+    //-- 스터디 수정 버튼 클릭 이벤트 START --
+    $('a.modify_btn').click(() => {
+        location.href = frontURL + 'study_updateForm.html?studyId=' + studyId
+    })
+    //-- 스터디 수정 버튼 클릭 이벤트 END --
 })
