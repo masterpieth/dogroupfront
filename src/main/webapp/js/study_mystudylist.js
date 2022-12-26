@@ -143,7 +143,6 @@ $(function(){
         else {
             currentPage = clickPage
         }
-        alert(currentPage)
         showList(currentPage, option)
     })
     //--페이지 클릭이벤트 END--
