@@ -103,7 +103,7 @@ $(function() {
                 data: JSON.stringify(sendData),
                 contentType:'application/json',
                 success: function() {
-                    alert('스터디가 수정되었습니다.')
+                    alert('스터디 정보가 수정되었습니다.')
                     location.href= frontURL + 'index.html'
                 }, error: function(xhr) {
                     alert(xhr.status)

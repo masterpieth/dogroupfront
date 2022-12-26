@@ -363,6 +363,27 @@ a{
     background-color: #0078ff;
 }
 
+.delete_btn {
+    margin-top: 20px;
+    width: 200px !important;
+    border: 1px solid red;
+    color: red;
+    height: 33px;
+    width: 66.4px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    line-height: 33px;
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.delete_btn:hover {
+    border: 1px solid white;
+    color: white;
+    background-color: red;
+}
+
 .stack_list{
     margin-top: 14px;
     letter-spacing: 0.03;
