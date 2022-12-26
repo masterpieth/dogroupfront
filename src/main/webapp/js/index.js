@@ -135,17 +135,14 @@ $(function(){
         alert(clickPage)
         if(clickPage == 'current') { return false }
         else if(clickPage == 'PREV') {
-            alert('이전페이지')
             currentPage = currentPage - 1
         }
         else if(clickPage == 'NEXT') {
-            alert('이후페이지')
             currentPage = currentPage + 1
         }
         else {
             currentPage = clickPage
         }
-        alert(currentPage)
         showList(currentPage, option)
     })
     //--페이지 클릭이벤트 END--
