@@ -1,4 +1,8 @@
 $(function() {
+    if(localStorage.getItem('loginedId') == null) {
+        alert('로그인해주세요')
+        location.href = frontURL + 'user_login.html'
+    }
     //-- 과목 정보 받아오기 START --
     $.ajax({
         url: backURL + 'study/subject/list/',
