@@ -57,9 +57,9 @@ $(function() {
                     } else {
                         $trCopy.find('td:eq(4)').html(item.transactionUser)
                     }
-                    $trCopy.find('td:eq(5)').find('span:eq(0)').html('\\' + oldBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+                    $trCopy.find('td:eq(5)').find('span:eq(0)').html('&#8361;' + oldBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
                     $trCopy.find('td:eq(5)').find('span:eq(1)').html(priceStr.replace(/\B(?=(\d{3})+(?!\d))/g, ","))
-                    $trCopy.find('td:eq(5)').find('span:eq(3)').html('\\' + item.walletBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+                    $trCopy.find('td:eq(5)').find('span:eq(3)').html('&#8361;' + item.walletBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
                     $('table > tbody').append($trCopy)
                 })
                 //페이지 목록 만들기
