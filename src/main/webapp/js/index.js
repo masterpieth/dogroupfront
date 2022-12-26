@@ -158,7 +158,7 @@ $(function(){
     })
     //--페이지 클릭이벤트 END--
 
-    //--과목 체크이벤트 END--
+    //--과목 체크이벤트 START--
     $('div.search_form input:checkbox').click((e)=>{
         filterStudy()
     })

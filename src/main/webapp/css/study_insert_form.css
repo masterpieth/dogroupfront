@@ -1,6 +1,6 @@
 div.study_create {
     padding-top: 50px;
-    padding-left: 33%;
+    padding-left: 31%;
     padding-bottom: 50px;
 }
 div.study_title {
@@ -8,52 +8,46 @@ div.study_title {
 }
 div.study_title input {
     display: inline-block;
-    width: 465px;
+    width: 500px;
 }
-input[name=email],
+input[name=email] {
+    width: 500px;
+}
 input[name=studySize],
-input[name=studyFee],
+input[name=studyFee] {
+    width: 200px;
+}
+input[name=studyPeriod] {
+    width: 80px;
+}
 input[name=studyStartDate],
-input[name=studyPeriod],
 input[name=studyEndDate] {
-    width: 160px;
-}
-div.study_date span{
-    display: inline-block;
-    width: 283px;
-}
-div.study_size_fee {
-    display: inline-block;
-    width: 800px;
-}
-div.study_size_fee span {
-    display: inline-block;
-    width: 316px;
+    width: 150px;
 }
 div.study_create_main {
     width: 600px;
+
 }
 div.study_certification select, input[name=studyDiligenceCutline] {
-    width: 95px;
+    width: 100px;
 }
 div.study_certification {
     display: inline-block;
-    width: 800px;
-}
-div.study_certification span {
-    margin-right: 8px;
+    width: 600px;
 }
 div.study_subject {
     width: 800px;
 }
 div.study_subject input {
-    width: 10px;
+    width: 20px;
     margin-left: 5px;
+    margin-right: 6px;
 }
 div.study_subject span.subject {
     display: inline-block;
     width: 117px;
     margin-top: 2px;
+    margin-right: 10px;
 }
 .delete_btn {
     margin-top: 20px;
@@ -93,4 +87,61 @@ div.study_subject span.subject {
     border:1px solid #0078ff;
     color:#0078ff;
     background-color: white;
+}
+div.study_create span{
+    display: inline-block;
+    width: 78px;
+}
+div.study_create span.certification {
+    display: inline-block;
+    width: 83px;
+}
+div.study_create span.diligence {
+
+    width: 74px;
+}
+div.study_create span.homework {
+
+    width: 65px;
+}
+select[name=studyCertification],
+input[name=studyDiligenceCutline] {
+    margin-right: 19px;
+}
+div.study_create span.period {
+    width: 30px;
+}
+div.study_create span.end_date {
+    width: 45px;
+}
+input[name=studyStartDate],
+input[name=studyPeriod] {
+    margin-right: 9px;
+}
+div.study_create span.fee {
+    width: 60px;
+}
+input[name=studySize] {
+    margin-right: 27px;
+}
+h2 {
+    margin-bottom: 20px;
+}
+textarea {
+border: 1px solid #ccc;
+border-radius: 4px;
+resize: none;
+}
+div.study_create div{
+    padding-bottom: 8px;
+}
+div.study_create div.study_size_fee {
+    padding-bottom: 25px;
+}
+span.stack {
+    margin-bottom: 10px;
+}
+span.content {
+    margin-top: 25px;
+    margin-bottom: 10px;
 }
