@@ -32,6 +32,9 @@ $(function() {
         let year = date.getFullYear()
         let month = date.getMonth() + 1
         let day = date.getDate()
+        if(month < 10) {
+            month = '0' + month
+        }
         if(day < 10) {
             day = '0' + day
         }
@@ -131,6 +134,27 @@ $(function() {
     })
     //-- 스터디 삭제 END --
 
+    //-- 스터디 기간(주차)설정 이벤트 START --
+    $('div.study_date input[name=studyPeriod]').on("propertychange change keyup paste input", (e) => {
+        $studyPeriod = $('div.study_date input[name=studyPeriod]')
+        period = $studyPeriod.val()
+        if($('input[name=studyStartDate]').val()=='') {
+            alert('시작 날짜를 설정해주세요.')
+            $studyPeriod.val('')
+        }
+        else {
+            if(period>104) {$studyPeriod.val('104')}
+            let $startDate = new Date($('input[name=studyStartDate]').val())
+            let endDate = new Date()
+            endDate.setDate($startDate.getDate() + Number(period)*7-1)
+            let year = endDate.getFullYear()
+            let month = ('0' + (endDate.getMonth() + 1)).slice(-2)
+            let day = ('0' + endDate.getDate()).slice(-2)
+            let endDateString = year + '-' + month  + '-' + day
+            $('div.study_date input[name=studyEndDate]').val(endDateString)
+        }
+    })
+    //-- 스터디 기간(주차)설정 이벤트 END --
     //-- Form 유효성 검사 START --
     function checkForm(subjects) {
         if($('input[name=studyTitle]').val() == '') {
@@ -169,16 +193,8 @@ $(function() {
             alert('시작일은 종료일보다 앞이어야 합니다')
             return false
         }
-        if((endDate.getDay() - startDate.getDay()) % 7 != 0) {
-            alert('스터디 기간은 7일단위로 설정해주세요')
-            return false
-        }
         if($('input[name=studySize]').val() == '') {
             alert('모집인원을 입력해주세요')
-            return false
-        }
-        if($('input[name=studyFee]').val() == '') {
-            alert('참가비용을 입력해주세요')
             return false
         }
         if(subjects.length == 0) {
