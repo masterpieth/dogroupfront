@@ -5,8 +5,11 @@ $(function() {
     let certification = ''
     let loginedId = localStorage.getItem('loginedId')
     let studyFee = ''
-    //--정산 요청을 위한 함수 START--
+    //-- 출석하기 요청을 위한 변수 세팅 END --
+    $('div.study_end').hide()
+    //-- 정산 요청을 위한 함수 START --
     function endStudy() {
+        $(div.study_end).show()
         $.ajax({
         xhrFields:{
             withCredentials: true
@@ -14,13 +17,37 @@ $(function() {
         url: backURL + 'study/end/' + studyId,
         method: 'put',
         success: function(jsonObj) {
-            alert('정산 완료') //정산 결과 띄어주는 기능 추가 후 삭제할 것@@@@@@@@@@@@@@@@@@@@@
+            alert("테스트 메시지 : 정산 완료")
         }, error: function(xhr) {
             alert(xhr.status)
         }
     })
     }
-    //--정산 요청을 위한 함수  END--
+    //-- 정산 요청을 위한 함수  END --
+
+    //-- 스터디원의 정산 금액, 성실도 보여주기 위한 함수 START --
+    function endStudyPrize() {
+        $('div.study_end').show()
+        $.ajax({
+        xhrFields:{
+            withCredentials: true
+        },
+        url: backURL + 'study/end/' + studyId,
+        method: 'post',
+        success: function(jsonObj) {
+            let $diligence = $('div.study_end input[name=diligence]')
+            let $prize = $('div.study_end input[name=prize]')
+            let $email = $('div.study_end input[name=email]')
+            $diligence.val(jsonObj.diligence)
+            $prize.val(jsonObj.prize)
+            $email.val(loginedId)
+        }, error: function(xhr) {
+            alert(xhr.status)
+        }
+    })
+    }
+    //-- 스터디원의 정산 금액, 성실도 보여주기 위한 함수 END --
+    
     //-- 출석하기 요청을 위한 변수 세팅 END --
     let queryStr = location.search.substr(1).split('=')
     $.ajax({
@@ -29,7 +56,6 @@ $(function() {
         },
         url: backURL + 'study/' + queryStr[1],
         success: function(jsonObj) {
-            
             let study = jsonObj.study
 
             //-- 상단 변수 세팅 START --
@@ -47,8 +73,9 @@ $(function() {
             let todayString = year + '-' + month  + '-' + day
             if((study.studyPaid==0)&(study.studyEndDate < todayString)) {
                 //스터디의 종료날짜가 오늘보다 빠르고, 스터디 정산 여부가 0이면 정산을 실시한다.
-                alert('정산이 필요합니다.') //정산 결과 띄어주는 기능 추가 후 삭제할 것@@@@@@@@@@@@@@@@@@@@@
-                endStudy();
+                endStudy()
+            } else if(study.studyEndDate < todayString) {
+                endStudyPrize()
             }
             //-- 정산 필요 여부 체크--
             //alert(study.studyEndDate)   

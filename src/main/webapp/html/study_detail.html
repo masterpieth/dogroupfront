@@ -109,28 +109,7 @@
             </div>
           </div>
 
-          <div class="finished_study"> 
-            <caption> 정산결과 </caption>
-            <table  style="display: inline-table; border-collapse: collapse; width: 30%;">
-              
-              <tbody>
-                  <tr>
-                      <th>아이디</th>
-                      <td><input type="text" name="email" disabled></td>
-                  </tr>
-                  <tr>
-                      <th>성실도결과</th>
-                      <td><input type="text" name="user_new_diligence" required></td>
-                  </tr>
-                  <tr>
-                      <th>정산금액</th>
-                      <td><input type="text" name="finished_study_money" required></td>
-                  </tr>
-        
-              </tbody>
-          </table>
-
-          </div>
+          
   
         </section>
 
@@ -166,6 +145,33 @@
                   </td>
                 </tr>
               </table>
+              <div class="study_end">
+                <br>
+                <caption> 정산결과 </caption>
+                <br><br>
+                <table style="display: inline-table; border-collapse: collapse; width: 30%;">
+                  <tbody>
+                    <tr>
+                      <td>아이디</td>
+                    </tr>
+                    <tr>
+                      <td><input type="text" name="email" disabled></td>
+                    </tr>
+                    <tr>
+                      <th>성실도결과</th>
+                      </tr>
+                      <tr>
+                      <td><input type="text" name="diligence" disabled></td>
+                    </tr>
+                    <tr>
+                      <th>정산금액</th>
+                      </tr>
+                      <tr>
+                      <td><input type="text" name="prize" disabled></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               <div class="leave_study" hidden>
                 <a class="delete_btn leave_study_btn">스터디 탈퇴</a>
               </div>
