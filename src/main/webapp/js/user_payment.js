@@ -70,16 +70,15 @@ $(function() {
                 let totalPage = jsonObj.totalPage;               //총페이지수
 
                 let liStr = '';
-                if(currentPage != 1) {
-                    liStr += '<li class="PREV">PREV</li>'
+               if(currentPage != 1) {
+                    liStr += '<li class="PREV">&#60</li>'
                 }
                 for(let i=startPage; i<=endPage; i++){
                     liStr += (i==currentPage) ? '<li class="current">' + i + '</li>' : '<li class="' + i +'">' + i + '</li>'
                 }
                 if(currentPage < totalPage) {
-                    liStr += '<li class="NEXT">NEXT</li>'
+                    liStr += '<li class="NEXT">&#62</li>'
                 }
-                console.log(liStr)
                 $('div.page_group_payment > ul').html(liStr)
             }, error: function(xhr) {
                 alert(xhr)
@@ -92,10 +91,10 @@ $(function() {
         let clickPage = $(e.target).attr('class')
         if(clickPage == 'current') { return false }
         else if(clickPage == 'PREV') {
-            currentPage = currentPage - 1
+            currentPage = Number(currentPage) - 1
         }
         else if(clickPage == 'NEXT') {
-            currentPage = currentPage + 1
+            currentPage = Number(currentPage) + 1
         }
         else {
             currentPage = clickPage
