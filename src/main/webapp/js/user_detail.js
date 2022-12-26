@@ -103,6 +103,10 @@ $(function() {
             alert('거래방식을 선택해주세요')
             return false
         }
+        if($('input[name=transactionMoney]').val() == '' || $('input[name=transactionMoney]').val() >= 10000000 ) {
+            alert('한도초과 : 1000만원 미만의 금액을 입력해주세요')
+            return false
+        }
         let sendData = {}
         sendData.transactionUser = $('select[name=transactionUser]').val()
         sendData.transactionMoney = $('input[name=transactionMoney]').val()
