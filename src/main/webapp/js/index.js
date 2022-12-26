@@ -1,7 +1,7 @@
 $(function(){
+    let currentPage = 1
     //--계정 유효성 테스트 START--
     let queryStr = location.search.substr(1).split('=')
-    
     switch(queryStr[0]) {
         case 'status':
             alert('탈퇴된 회원입니다. 다른 계정으로 가입해주세요.')
@@ -86,14 +86,14 @@ $(function(){
                 let cntPerPageGroup = jsonObj.cntPerPageGroup    //페이지 그룹수
                 let totalPage = jsonObj.totalPage;               //총페이지수
                 let liStr = '';
-                if(currentPage > (cntPerPageGroup/2 + 1)) {
-                    liStr += '<li class="' + (startPage - 1) + '">PREV</li>'
+                if(currentPage != 1) {
+                    liStr += '<li class="PREV">PREV</li>'
                 }
                 for(let i=startPage; i<=endPage; i++){
                     liStr += (i==currentPage) ? '<li class="current">' + i + '</li>' : '<li class="' + i +'">' + i + '</li>'
                 }
-                if(currentPage < totalPage - (cntPerPageGroup/2)) {
-                    liStr += '<li class="' + (endPage + 1) + '">NEXT</li>'
+                if(currentPage < totalPage) {
+                    liStr += '<li class="NEXT">NEXT</li>'
                 }
                 $('div.page_group>ul').html(liStr)
             },
@@ -131,9 +131,22 @@ $(function(){
 
     //--페이지 클릭이벤트 START--
     $('div.page_group>ul').on('click', 'li', (e)=>{
-        let currentPage = $(e.target).attr('class')
-        if(currentPage == 'current') { return false } 
-        else { showList(currentPage, option) }
+        let clickPage = $(e.target).attr('class')
+        alert(clickPage)
+        if(clickPage == 'current') { return false }
+        else if(clickPage == 'PREV') {
+            alert('이전페이지')
+            currentPage = currentPage - 1
+        }
+        else if(clickPage == 'NEXT') {
+            alert('이후페이지')
+            currentPage = currentPage + 1
+        }
+        else {
+            currentPage = clickPage
+        }
+        alert(currentPage)
+        showList(currentPage, option)
     })
     //--페이지 클릭이벤트 END--
 
