@@ -56,6 +56,7 @@ $(function() {
         },
         url: backURL + 'study/' + queryStr[1],
         success: function(jsonObj) {
+            console.log(jsonObj)
             let study = jsonObj.study
 
             //-- 상단 변수 세팅 START --
@@ -84,7 +85,12 @@ $(function() {
                 //-- 정산 필요 여부 체크 END--
                 
                 //-- 출석하기 버튼, 스터디 탈퇴 토글 START --
-                let loginedUserHomeworkList = jsonObj.loginedStudyUser.homeworkList
+                let loginedUserHomeworkList
+                $.each(studyUserList, function(index, user) {
+                    if(user.email == loginedId) {
+                        loginedUserHomeworkList = user.homeworkList
+                    }
+                })
                 if(jsonObj.loginedStudyUser.email == null) {
                     $('div.homework_btn').hide()
                     $('div.homework_done').hide()
