@@ -40,11 +40,11 @@
                         <br>
                         <div class="study_user_eamil">
                             개설자<br>
-                            <input type="text" name="email">
+                            <input type="text" name="email" readonly>
                         </div>
                         <br>
                         <div class="study_title">
-                            스터디 제목<input type="text" name="studyTitle" placeholder="스터디 제목 입력">
+                            스터디 제목<input type="text" name="studyTitle" placeholder="스터디 제목 입력" maxlength="30" required>
                         </div>
                         <br>
                         <div class="study_certification">
@@ -55,7 +55,7 @@
                                 <option value="0">출석체크</option>
                             </select>
                             &nbsp;
-                            성실도 기준&nbsp;<input type="number" name="studyDiligenceCutline" min="0" placeholder="성실도 선택">
+                            성실도 기준&nbsp;<input type="number" name="studyDiligenceCutline" min="0" max="999"  placeholder="성실도 입력" required>
                             &nbsp;인증 빈도&nbsp;
                             <select name="studyHomeworkPerWeek">
                                 <option>빈도선택</option>
@@ -71,12 +71,13 @@
                         <br>
                         <div class="study_date">
                             스터디 시작일&nbsp;<input type="date" name="studyStartDate">
-                            스터디 종료일&nbsp;<input type="date" name="studyEndDate">
+                            스터디 기간&nbsp;<input type="number" name="studyPeriod" placeholder="n주차 입력" min="1" max="104">주
+                            스터디 종료일&nbsp<input type="date" name="studyEndDate" readonly>
                         </div>
                         <br>
                         <div class="study_size_fee">
-                            모집인원&nbsp;<input type="number" name="studySize" min="1" placeholder="최소 1명">
-                            참가비용&nbsp;<input type="number" name="studyFee" min="0" placeholder="최소 0원">
+                            모집인원&nbsp;<input type="number" name="studySize" min="1" max="100" placeholder="최소 1명">
+                            참가비용&nbsp;<input type="number" name="studyFee" min="0" max="200000" placeholder="최소 0원">원
                         </div>
                         <br><br>
                         <div class="study_subject">
@@ -87,7 +88,7 @@
                         스터디내용
                         <div>
                             <br>
-                            <textarea rows="20" cols="90" name="studyContent"></textarea>
+                            <textarea rows="20" cols="90" name="studyContent" maxlength="2000"></textarea>
                         </div>
                         <div class="study_submit">
                             <a class="modify_btn" id="open_study_btn">개설하기</a>
