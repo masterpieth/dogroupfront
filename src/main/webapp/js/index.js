@@ -61,6 +61,19 @@ $(function(){
             method : 'post',
             success : function(jsonObj){
                 studyAllList = jsonObj.list
+                console.log(jsonObj.list)
+                //-- 최신 스터디 세팅 START --
+                for(let i=0; i<=2; i++) {
+                    let title = studyAllList[i].studyTitle
+                    if(title.length > 18) {
+                        title = title.slice(0, 18)
+                        title += '...'
+                    }
+                    $('div.root_competition:eq(' + i + ')').find('div.root_info > a').html(title)
+                    $('div.root_competition:eq(' + i + ')').find('div.root_info > ul > li:eq(0)').html('게시일 : ' + studyAllList[i].studyPostDate)
+                    $('div.root_competition:eq(' + i + ')').find('div.root_info > ul > li:eq(1)').html('스터디기간 : ' + studyAllList[i].studyStartDate + ' ~ ' + studyAllList[i].studyEndDate)
+                }
+                //-- 최신 스터디 세팅 END --
                 $(studyAllList).each((index, study)=>{
                     let $studyCopy = $studyOrigin.clone()
                     let src = "../images/icons/" + study.subjects[0].subject.subjectName + ".svg"
