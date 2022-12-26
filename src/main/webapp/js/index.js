@@ -69,7 +69,7 @@ $(function(){
                         title = title.slice(0, 18)
                         title += '...'
                     }
-                    $('div.root_competition:eq(' + i + ')').find('div.root_info > a').html(title)
+                    $('div.root_competition:eq(' + i + ')').find('div.root_info > a').html(title).attr('href', '/src/main/webapp/html/study_detail.html?studyId=' + studyAllList[i].studyId)
                     $('div.root_competition:eq(' + i + ')').find('div.root_info > ul > li:eq(0)').html('게시일 : ' + studyAllList[i].studyPostDate)
                     $('div.root_competition:eq(' + i + ')').find('div.root_info > ul > li:eq(1)').html('스터디기간 : ' + studyAllList[i].studyStartDate + ' ~ ' + studyAllList[i].studyEndDate)
                 }
