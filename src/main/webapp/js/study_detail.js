@@ -122,6 +122,12 @@ $(function() {
                     $('div.homework_btn').hide()
                     $('div.homework_done').hide()
                 }
+                //리더인 경우, 아닌경우
+                if(jsonObj.loginedStudyUser.email != study.studyLeader.email) {
+                    $('div.leave_study > a.modify_btn').hide()
+                } else {
+                    $('div.leave_study > a.modify_btn').show()
+                }
                 //-- 스터디 탈퇴 버튼 토글 END --
             } else {
                 $('nav.study_detail_nav').hide()
