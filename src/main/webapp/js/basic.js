@@ -16,3 +16,18 @@ function showMenu() {
         $('ul.user_nav li.logout').hide()
     }
 }
+
+function checkLogin() {
+    $.ajax({
+        url: backURL + 'user/',
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function() {
+            console.log('되고있니')
+        }, error: function() {
+            localStorage.removeItem('loginedId')
+            showMenu()
+        }
+    })
+}

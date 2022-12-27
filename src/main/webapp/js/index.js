@@ -1,4 +1,6 @@
 $(function(){
+    window.setInterval(checkLogin(), 5000)
+
     let currentPage = 1
     let bannerStudyList = new Array()
     //--계정 유효성 테스트 START--
@@ -14,6 +16,7 @@ $(function(){
     }
     showMenu()
     //--계정 유효성 테스트 END--
+
     //--로그아웃 START--
     $('ul.user_nav li.logout a').click(() => {
         $.ajax({
