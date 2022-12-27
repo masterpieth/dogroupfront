@@ -8,10 +8,10 @@ div.study_title {
 }
 div.study_title input {
     display: inline-block;
-    width: 500px;
+    width: 525px;
 }
 input[name=email] {
-    width: 150px;
+    width: 525px;
 }
 input[name=studySize],
 input[name=studyFee] {
@@ -19,13 +19,19 @@ input[name=studyFee] {
 }
 input[name=studyPeriod] {
     width: 80px;
+    margin-left: 20px;
 }
-input[name=studyStartDate],
+div.study_date {
+    width: 700px;
+}
+input[name=studyStartDate]{
+    width: 140px;
+}
 input[name=studyEndDate] {
-    width: 150px;
+    width: 140px;
 }
 div.study_create_main {
-    width: 600px;
+    width: 800px;
 
 }
 div.study_certification select, input[name=studyDiligenceCutline] {
@@ -33,7 +39,7 @@ div.study_certification select, input[name=studyDiligenceCutline] {
 }
 div.study_certification {
     display: inline-block;
-    width: 600px;
+    width: 700px;
 }
 div.study_subject {
     width: 800px;
@@ -45,7 +51,7 @@ div.study_subject input {
 }
 div.study_subject span.subject {
     display: inline-block;
-    width: 117px;
+    width: 125px;
     margin-top: 2px;
     margin-right: 10px;
 }
@@ -90,36 +96,43 @@ div.study_subject span.subject {
 }
 div.study_create span{
     display: inline-block;
-    width: 78px;
+    width: 83px;
 }
 div.study_create span.certification {
     display: inline-block;
-    width: 83px;
+    width: 88px;
 }
 div.study_create span.diligence {
 
-    width: 74px;
+    width: 82px;
 }
 div.study_create span.homework {
 
-    width: 65px;
+    width: 82px;
 }
 select[name=studyCertification],
 input[name=studyDiligenceCutline] {
     margin-right: 19px;
 }
 div.study_create span.period {
-    width: 30px;
+    margin-left: 11px;
+    width: 36px;
 }
 div.study_create span.end_date {
-    width: 45px;
+    margin-left: 11px;
+    width: 52px;
+}
+div.study_date span.start_date {
+    display: inline-block;
+    width: 100px;
 }
 input[name=studyStartDate],
 input[name=studyPeriod] {
     margin-right: 9px;
 }
 div.study_create span.fee {
-    width: 60px;
+    margin-right: 22px;
+    width: 63px;
 }
 input[name=studySize] {
     margin-right: 27px;

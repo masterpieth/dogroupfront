@@ -67,7 +67,7 @@
                             </select>
                         </div>
                         <div class="study_date">
-                            <span>시작일</span><input type="date" name="studyStartDate">
+                            <span class="start_date">시작일</span><input type="date" name="studyStartDate">
                             <span class="period">기간</span><input type="number" name="studyPeriod" placeholder="n주차" min="1" max="104">
                             <span class="end_date">종료일</span><input type="date" name="studyEndDate" readonly>
                         </div>
@@ -78,8 +78,11 @@
                         <div class="study_subject">
                             <span class="stack">기술스택</span>
                         </div>
-                        <span class="content">스터디내용</span>
-                        <textarea rows="20" cols="72" name="studyContent" maxlength="2000"></textarea>
+                        <div>
+                            <span class="content">스터디내용</span>
+                        </div>
+                        <div>
+                            <textarea rows="20" cols="76" name="studyContent" maxlength="2000"></textarea>
                         </div>
                         <div class="study_submit">
                             <a class="modify_btn" id="update_study_btn">수정하기</a>
