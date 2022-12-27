@@ -1,5 +1,6 @@
 $(function(){
     let currentPage = 1
+    let bannerStudyList = new Array()
     //--계정 유효성 테스트 START--
     let queryStr = location.search.substr(1).split('=')
     switch(queryStr[0]) {
@@ -62,16 +63,21 @@ $(function(){
             success : function(jsonObj){
                 studyAllList = jsonObj.list
                 console.log(jsonObj.list)
+                if(bannerStudyList.length == 0) {
+                    bannerStudyList.push(studyAllList[0])
+                    bannerStudyList.push(studyAllList[1])
+                    bannerStudyList.push(studyAllList[2])
+                }
                 //-- 최신 스터디 세팅 START --
                 for(let i=0; i<=2; i++) {
-                    let title = studyAllList[i].studyTitle
+                    let title = bannerStudyList[i].studyTitle
                     if(title.length > 18) {
                         title = title.slice(0, 18)
                         title += '...'
                     }
-                    $('div.root_competition:eq(' + i + ')').find('div.root_info > a').html(title).attr('href', '/src/main/webapp/html/study_detail.html?studyId=' + studyAllList[i].studyId)
-                    $('div.root_competition:eq(' + i + ')').find('div.root_info > ul > li:eq(0)').html('게시일 : ' + studyAllList[i].studyPostDate)
-                    $('div.root_competition:eq(' + i + ')').find('div.root_info > ul > li:eq(1)').html('스터디기간 : ' + studyAllList[i].studyStartDate + ' ~ ' + studyAllList[i].studyEndDate)
+                    $('div.root_competition:eq(' + i + ')').find('div.root_info > a').html(title).attr('href', '/src/main/webapp/html/study_detail.html?studyId=' + bannerStudyList[i].studyId)
+                    $('div.root_competition:eq(' + i + ')').find('div.root_info > ul > li:eq(0)').html('게시일 : ' + bannerStudyList[i].studyPostDate)
+                    $('div.root_competition:eq(' + i + ')').find('div.root_info > ul > li:eq(1)').html('스터디기간 : ' + bannerStudyList[i].studyStartDate + ' ~ ' + bannerStudyList[i].studyEndDate)
                 }
                 //-- 최신 스터디 세팅 END --
                 $(studyAllList).each((index, study)=>{
