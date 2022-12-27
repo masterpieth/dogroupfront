@@ -144,6 +144,13 @@ $(function() {
     })
     //-- 스터디 기간(주차)설정 이벤트 END --
 
+    //-- 스터디 기간(주차)설정 초기화 이벤트 START--
+    $('div.study_date input[name=studyStartDate]').on("propertychange change keyup paste input", (e) => {
+        $('div.study_date input[name=studyPeriod]').val('')
+        $('div.study_date input[name=studyEndDate]').val('')
+    })
+    //-- 스터디 기간(주차)설정 초기화 이벤트 END--
+
     //-- 스터디 유효성 검사 최댓값 설정 START--
     $('div.study_certification input[name=studyDiligenceCutline]').on("propertychange change keyup paste input", (e) => {
         if($('div.study_certification input[name=studyDiligenceCutline]').val()>999)
