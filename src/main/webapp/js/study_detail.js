@@ -36,9 +36,9 @@ $(function() {
         url: backURL + 'study/end/' + studyId,
         method: 'post',
         success: function(jsonObj) {
-            let $diligence = $('div.study_end input[name=diligence]')
-            let $prize = $('div.study_end input[name=prize]')
-            let $email = $('div.study_end input[name=email]')
+            let $diligence = $('div.study_end input[name=user_diligence]')
+            let $prize = $('div.study_end input[name=user_prize]')
+            let $email = $('div.study_end input[name=user_email]')
             $diligence.val(jsonObj.diligence)
             $prize.val(jsonObj.prize)
             $email.val(loginedId)
