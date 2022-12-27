@@ -40,3 +40,6 @@ input[type='button']:focus {
 input[type='button']:disabled {
   opacity: 0.5;
 }
+input[name=user_email] {
+    width: 120px;
+}
