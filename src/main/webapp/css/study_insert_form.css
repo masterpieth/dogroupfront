@@ -11,7 +11,7 @@ div.study_title input {
     width: 500px;
 }
 input[name=email] {
-    width: 500px;
+    width: 150px;
 }
 input[name=studySize],
 input[name=studyFee] {
