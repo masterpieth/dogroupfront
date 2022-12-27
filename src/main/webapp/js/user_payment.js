@@ -55,13 +55,16 @@ $(function() {
                     $trCopy.find('td:eq(2)').html(categoryStr)
                     if(item.study != null) {
                         $trCopy.find('td:eq(3)').html(item.study.studyTitle)
+                        $trCopy.find('td:eq(4)').html('')
                     } else {
+                        $trCopy.find('td:eq(3)').html('')
                         $trCopy.find('td:eq(4)').html(item.transactionUser)
                     }
                     $trCopy.find('td:eq(5)').find('span:eq(0)').html('&#8361;' + oldBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
                     $trCopy.find('td:eq(5)').find('span:eq(1)').html(priceStr.replace(/\B(?=(\d{3})+(?!\d))/g, ","))
                     $trCopy.find('td:eq(5)').find('span:eq(3)').html('&#8361;' + item.walletBalance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
                     $('table > tbody').append($trCopy)
+                    
                 })
                 //페이지 목록 만들기
                 let startPage = jsonObj.startPage                //페이지 목록 그룹에서의 시작 페이지
