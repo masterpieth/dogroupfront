@@ -7,22 +7,35 @@ table.payment_table.thead {
     text-align: center;
   
 }
-thead tr {
+#usertd #tr1 {
     background-color: #8CA5AF;
     text-align: center;
     font-size: large;
+
 }
 
 table.study_users_list{
-width: 90%;
-border: 2px solid;
-border-collapse: collapse;
-text-align: center;
-line-height: 1.5;
-margin : 20px 10px;
+    width: 90%;
+    border: 2px solid;
+    border-collapse: collapse;
+    text-align: center;
+    line-height: 1.5;
+    margin : 20px 10px;
 }
 
-th, td {
-border: 1px solid;
+#a1 tbody {
+    border: 1px solid;
+}
+#a2 tbody {
+    border: 1px solid;   
+}
+#a3 tbody {
+    border: 1px solid;   
+}
+#a4 tbody {
+    border: 1px solid;   
+}
+#tr1 {
+    border: 1px solid;   
 }
 /***** table section *****/
