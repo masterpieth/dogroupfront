@@ -244,3 +244,8 @@ nav {
     border : 1px solid;
     text-align: center;
   }
+  input[name=user_email],
+  input[name=user_diligence],
+  input[name=user_prize] {
+    width: 150px;
+}
