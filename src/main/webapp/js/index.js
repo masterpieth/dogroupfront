@@ -1,5 +1,5 @@
 $(function(){
-    //window.setInterval(checkLogin(), 5000)
+    window.setInterval(checkLogin(), 5000)
 
     let currentPage = 1
     let bannerStudyList = new Array()
