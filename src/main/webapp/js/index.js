@@ -73,8 +73,8 @@ $(function(){
                 //-- 최신 스터디 세팅 START --
                 for(let i=0; i<=2; i++) {
                     let title = bannerStudyList[i].studyTitle
-                    if(title.length > 20) {
-                        title = title.slice(0, 20)
+                    if(title.length > 18) {
+                        title = title.slice(0, 18)
                         title += '...'
                     }
                     $('div.root_competition:eq(' + i + ')').find('div.root_info > a').html(title).attr('href', '/src/main/webapp/html/study_detail.html?studyId=' + bannerStudyList[i].studyId)

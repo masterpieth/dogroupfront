@@ -150,6 +150,8 @@ $(function() {
             let studyCertification = study.studyCertification
             if(studyCertification == 1 ){
                 $('div [role= cell4]').html('Github')
+            }else if(studyCertification == 0 ){
+                $('div [role= cell4]').html('버튼형')
             }
             $('div [role= cell6]').html(study.studySize).append('명')
             $('div [role= cell8]').html(study.studyDiligenceCutline).append('점')
