@@ -24,7 +24,6 @@ function checkLogin() {
             withCredentials: true
         },
         success: function() {
-            console.log('되고있니')
         }, error: function() {
             localStorage.removeItem('loginedId')
             showMenu()
