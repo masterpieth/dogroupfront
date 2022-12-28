@@ -110,13 +110,17 @@ $(function(){
     //--검색하기 클릭이벤트 START--
     $('div.search_form a.search_study_btn').click(()=>{
         let studyTitle = $('input[name=studyTitle]').val()
-        let name = $('input[name=name]').val()
+        let email = $('input[name=email]').val()
         let studyStartDate = $('input[name=studyStartDate]').val()
         let studyEndDate = $('input[name=studyEndDate]').val()
         let studySize = $('input[name=studySize]').val()
         let studyDiligenceCutline = $('input[name=studyDiligenceCutline]').val()
         let studyFee = $('input[name=studyFee]').val()
-        option = {studyTitle, name, studyStartDate, studyEndDate, studySize, studyDiligenceCutline, studyFee}
+        let studyLeader = {email}
+        if($('select.fee').val()=='없음') {
+            studyFee = -1
+        }
+        option = {studyTitle, studyLeader, studyStartDate, studyEndDate, studySize, studyDiligenceCutline, studyFee}
         showList(1, option)
     })
     //--검색하기 클릭이벤트 START--
