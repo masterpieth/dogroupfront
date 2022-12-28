@@ -202,14 +202,20 @@ $(function(){
     $('div.container input[name=studyDiligenceCutline]').on("propertychange change keyup paste input", () => {
         if($('div.container input[name=studyDiligenceCutline]').val()>999)
             $('div.container input[name=studyDiligenceCutline]').val('999')
+        if($('div.container input[name=studyDiligenceCutline]').val()<0)
+            $('div.container input[name=studyDiligenceCutline]').val('0')
     })
     $('div.container input[name=studySize]').on("propertychange change keyup paste input", () => {
         if($('div.container input[name=studySize]').val()>100)
             $('div.container input[name=studySize]').val('100')
+                    if($('div.container input[name=studySize]').val()<0)
+            $('div.container input[name=studySize]').val('0')
     })
     $('div.container input[name=studyFee]').on("propertychange change keyup paste input", () => {
         if($('div.container input[name=studyFee]').val()>200000)
             $('div.container input[name=studyFee]').val('200000')
+        if($('div.container input[name=studyFee]').val()<0)
+            $('div.container input[name=studyFee]').val('0')
     })
     //-- 스터디 검색 조건 유효성 검사 최댓값 설정 END--
 })
